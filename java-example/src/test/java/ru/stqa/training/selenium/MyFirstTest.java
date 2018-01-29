@@ -27,6 +27,7 @@ public class MyFirstTest {
         //driver = new InternetExplorerDriver();
        // driver = new FirefoxDriver();
        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wait = new WebDriverWait (driver, 10);
 }
 

@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
-public class Lesson_13 {
+public class FullScreen {
 
         private WebDriver driver;
         private WebDriverWait wait;

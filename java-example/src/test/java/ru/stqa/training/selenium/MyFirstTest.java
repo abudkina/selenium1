@@ -34,9 +34,9 @@ public class MyFirstTest {
 @Test
     public void myFirstTest() throws InterruptedException {
         driver.get ("https://www.google.com/");
-        driver.findElement(By.name("q")).sendKeys("gfghfhtsfhsfh");
+        driver.findElement(By.name("q")).sendKeys("3gfghfhtsfhsfh");
         driver.findElement(By.name("btnK")).click();
-        wait.until(titleIs("gfghfhtsfhsfh - Поиск в Google"));
+        wait.until(titleIs("3gfghfhtsfhsfh - Поиск в Google"));
 }
 
 @After

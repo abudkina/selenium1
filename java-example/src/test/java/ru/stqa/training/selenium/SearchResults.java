@@ -20,9 +20,9 @@ package ru.stqa.training.selenium;
         import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
 
-public class SearchResults //extends Search{
+public class SearchResults {
 
-{ private WebDriver driver;
+ private WebDriver driver;
     private WebDriverWait wait;
 
     @Before
@@ -31,14 +31,6 @@ public class SearchResults //extends Search{
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wait = new WebDriverWait (driver, 30);
-    }
-
-
-   // @Test
-    public void Buy()  {
-
-      //  SearchBest("jfk","lgw");
-
     }
 
     @Test

@@ -1,4 +1,4 @@
-package ru.stqa.training.selenium;
+package ru.stqa.training.selenium.test;
 
 import org.junit.After;
 import org.junit.Before;
@@ -34,32 +34,15 @@ public class BookingPage {
         wait = new WebDriverWait (driver, 10);
     }
 
-  //  @Test
-    public void Booking_1() {
+      @Test
+    public void Booking()  {
 
-        //FareStreet
-        Booking("https://www.onvoya.com/flights/booking?searchSessionId=00536e9a-8909-400d-878a-e1ba9b5054d9&itineraryKey=114JFK1525210200000BAE2273LGW1527784500000BAE&itineraryId=1eb67a27-4172-42a0-a6ab-94aca9c63070&provider=FareStreet&deepLink=null");
-    }
-  //  @Test
-    public void Booking_2() {
-
-    //SmartFares
-        Booking ("https://www.onvoya.com/flights/booking?searchSessionId=3ce074f8-bcfb-4159-bb9c-1d8ea3c8edc6&itineraryKey=10LAX1522348200000TKE413IST1522482600000TKE418VKO1523717400000TKE9IST1523797200000TKE&itineraryId=9725bf24-803a-4838-bb4a-4374cde1a623&provider=Smartfares&deepLink=null");
-    }
-   // @Test
-    public void Booking_3() {
-
-        //SmartFares
-        Booking ("https://www.onvoya.com/flights/booking?searchSessionId=2b1c3b03-f693-429e-8b46-0203e24392fc&itineraryKey=0557YKF1534917600000WSE1508YYC1534931700000WSE&itineraryId=30edd89d-36fc-4f9b-840c-8e22f2ad8fc1&provider=WestJet&deepLink=null");
-    }
-
-    @Test
-    public void Booking_4(){
         //Cheapoair
-        Booking ("https://www.onvoya.com/flights/booking?searchSessionId=3a8163be-64af-4eb5-86cd-4577f4538fae&itineraryKey=104JFK1537204500000EIE8472DUB1537260300000EIE&itineraryId=d8514549-5a12-4013-8ffd-385a1431c729&provider=Cheapoair&deepLink=null");
-
+      Booking("http://web2.onvoya.com/flights/booking?searchSessionId=3a5fa074-0441-4ac6-824d-0cd673c53248&itineraryKey=92JFK1534370700000UXE1015MAD1534431600000UXE&itineraryId=5889746f-d880-45d9-a5dc-f86ffe99cf8d&provider=Cheapoair&deepLink=null");
+        //SmartFares
 
     }
+
 
     @After
 

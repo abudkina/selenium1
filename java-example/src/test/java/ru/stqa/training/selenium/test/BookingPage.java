@@ -34,15 +34,32 @@ public class BookingPage {
         wait = new WebDriverWait (driver, 10);
     }
 
-      @Test
+    //  @Test
     public void Booking()  {
 
         //Cheapoair
-      Booking("http://web2.onvoya.com/flights/booking?searchSessionId=3a5fa074-0441-4ac6-824d-0cd673c53248&itineraryKey=92JFK1534370700000UXE1015MAD1534431600000UXE&itineraryId=5889746f-d880-45d9-a5dc-f86ffe99cf8d&provider=Cheapoair&deepLink=null");
+      Booking("http://web2.onvoya.com/flights/booking?searchSessionId=d937d858-f132-4d99-8044-d5205288cc17&itineraryKey=3SFO1519776300000CIE181TPE1519891200000CIE&itineraryId=f359e63d-152d-4644-9a8c-81724abf0687&provider=Cheapoair&deepLink=null");
         //SmartFares
 
     }
 
+   // @Test
+    public void Booking_1()  {
+
+        //Cheapoair
+        Booking("http://web2.onvoya.com/flights/booking?searchSessionId=d937d858-f132-4d99-8044-d5205288cc17&itineraryKey=0003SFO1519776300000CIE0181TPE1519891200000CIE&itineraryId=e125391c-0879-4d9d-97c6-716951c616a9&provider=Smartfares&deepLink=null");
+        //SmartFares
+
+    }
+
+    @Test
+    public void Booking_2()  {
+
+        //Cheapoair
+        Booking("http://web2.onvoya.com/flights/booking?searchSessionId=f637ae7d-c6b3-4760-9646-3fbb4d7a7786&itineraryKey=3SFO1519776300000CIE181TPE1519891200000CIE&itineraryId=0d8409c5-2bce-4773-b72e-ae6a47ea6ca3&provider=FareStreet&deepLink=null");
+        //SmartFares
+
+    }
 
     @After
 

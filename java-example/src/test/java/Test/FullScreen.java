@@ -1,4 +1,4 @@
-package ru.stqa.training.selenium;
+package Test;
 
 import org.junit.After;
 import org.junit.Before;
@@ -31,7 +31,7 @@ public class FullScreen {
             driver = new ChromeDriver(options);
            DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability(ChromeOptions.CAPABILITY,options);
-            driver = new ChromeDriver(caps);
+           //driver = new ChromeDriver(caps);
             //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             wait = new WebDriverWait (driver, 10);
         }

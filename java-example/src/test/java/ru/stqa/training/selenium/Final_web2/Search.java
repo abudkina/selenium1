@@ -1,4 +1,4 @@
-package ru.stqa.training.selenium.test;
+package ru.stqa.training.selenium.Final_web2;
 /**
  * Created by budki on 31.01.2018.
  */
@@ -17,24 +17,8 @@ import java.util.concurrent.TimeUnit;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
-public class Search {
+public class Search extends Final{
 
-    private WebDriver driver;
-    private WebDriverWait wait;
-
-    @Before
-
-    public void start() {
-     //   ChromeOptions options = new ChromeOptions();
-     //   options.addArguments("start-fullscreen");
-    //    driver = new ChromeDriver(options);
-     //   DesiredCapabilities caps = new DesiredCapabilities();
-     //   caps.setCapability(ChromeOptions.CAPABILITY,options);
-    //    driver = new ChromeDriver(caps);
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        wait = new WebDriverWait (driver, 10);
-    }
 
   //  @Test
     public void TestRound()  {
@@ -96,16 +80,10 @@ public class Search {
         SearchBestMulti("JFK","BOS", "DEL", "SFO");
     }
 
-    @After
-
-    public void stop () {
-        driver.quit();
-        driver = null;
-    }
 
     public void SearchBest(String from, String to) {
 
-        driver.navigate().to ("http://www.web2.onvoya.com.com/");
+        driver.navigate().to ("http://web2.onvoya.com/");
         //driver.findElement(By.name("from")).clear();
         //driver.findElement(By.name("to")).clear();
         driver.findElement(By.xpath("//*[@id=\"round-trip\"]/div/div[1]/div[1]/div/input")).sendKeys(from); // находит по элементу поле и вставляет значение
@@ -118,13 +96,13 @@ public class Search {
         driver.findElement(By.xpath("//*[@id=\"round-trip\"]/div/div[1]/div[3]/div/input")).sendKeys(" ");
         driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[2]/div[2]/div[1]/div[2]")).click();
         System.out.println("Round - BEST " + from + " - " + to);
-        wait.until(titleIs("Search, Find, Book and Save on Flights - web2.onvoya.com"));
+        wait.until(titleIs("Search, Find, Book and Save on Flights - OnVoya"));
 
     }
 
     public void SearchAll(String from, String to) {
 
-        driver.navigate().to ("http://www.web2.onvoya.com.com/");
+        driver.navigate().to ("http://web2.onvoya.com/");
         //driver.findElement(By.name("from")).clear();
         //driver.findElement(By.name("to")).clear();
         driver.findElement(By.xpath("//*[@id=\"round-trip\"]/div/div[1]/div[1]/div/input")).sendKeys(from); // находит по элементу поле и вставляет значение
@@ -137,13 +115,13 @@ public class Search {
         driver.findElement(By.xpath("//*[@id=\"round-trip\"]/div/div[1]/div[3]/div/input")).sendKeys(" ");
         driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[2]/div[2]/div[1]/div[1]")).click();
         System.out.println("Round - ALL " + from + " - " + to);
-        wait.until(titleIs("Search, Find, Book and Save on Flights - web2.onvoya.com"));
+        wait.until(titleIs("Search, Find, Book and Save on Flights - OnVoya"));
 
     }
 
     public void SearchBestOne(String from, String to){
 
-        driver.navigate().to ("http://www.web2.onvoya.com.com/");
+        driver.navigate().to ("http://web2.onvoya.com/");
         driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[2]/div[1]/div[1]/div[2]/a")).click();
         driver.findElement(By.xpath("//*[@id=\"oneway-trip\"]/div/div[1]/div[1]/div/input")).sendKeys(from); // находит по элементу поле и вставляет значение
         wait.until(elementToBeClickable(By.xpath("//*[@id=\"searchSelected\"]")));
@@ -155,11 +133,11 @@ public class Search {
         driver.findElement(By.xpath("//*[@id=\"oneway-trip\"]/div/div[1]/div[3]/div/input")).sendKeys(" "); // находит по элементу поле и вставляет значение
         driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[2]/div[2]/div[1]/div[2]")).click();
         System.out.println("OneWay - BEST " + from + " - " + to);
-        wait.until(titleIs("Search, Find, Book and Save on Flights - web2.onvoya.com"));}
+        wait.until(titleIs("Search, Find, Book and Save on Flights - OnVoya"));}
 
     public void SearchAllOne(String from, String to) {
 
-        driver.navigate().to ("http://www.web2.onvoya.com.com/");
+        driver.navigate().to ("http://web2.onvoya.com/");
         driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[2]/div[1]/div[1]/div[2]/a")).click();
         driver.findElement(By.xpath("//*[@id=\"oneway-trip\"]/div/div[1]/div[1]/div/input")).sendKeys(from); // находит по элементу поле и вставляет значение
         wait.until(elementToBeClickable(By.xpath("//*[@id=\"searchSelected\"]")));
@@ -172,13 +150,13 @@ public class Search {
         wait.until(elementToBeClickable(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[2]/div[2]/div[1]/div[1]")));
         driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[2]/div[2]/div[1]/div[1]")).click();
         System.out.println("OneWay - ALL " + from + " - " + to);
-        wait.until(titleIs("Search, Find, Book and Save on Flights - web2.onvoya.com"));
+        wait.until(titleIs("Search, Find, Book and Save on Flights - OnVoya"));
 
     }
 
     public void SearchBestMulti(String from, String to, String from2, String to2) {
 
-        driver.get ("http://www.web2.onvoya.com.com/");
+        driver.get ("http://web2.onvoya.com/");
         driver.findElement(By.name("from")).clear();
         driver.findElement(By.name("to")).clear();
         driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[2]/div[1]/div[1]/div[3]/a")).click(); //multi
@@ -207,7 +185,7 @@ public class Search {
         driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[2]/div[2]/div[1]/div[2]")).click();
 
         System.out.println("Search Multi Best " + from + " - " + to + " - " + from2 + " - " + to2);
-        wait.until(titleIs("Search, Find, Book and Save on Flights - web2.onvoya.com"));
+        wait.until(titleIs("Search, Find, Book and Save on Flights - OnVoya"));
 
     }
 

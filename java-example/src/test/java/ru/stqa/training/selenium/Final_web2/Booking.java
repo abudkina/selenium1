@@ -1,93 +1,140 @@
-package ru.stqa.training.selenium;
+package ru.stqa.training.selenium.Final_web2;
 
 //import com.sun.tools.internal.xjc.Driver;
+
+import com.beust.jcommander.Parameters;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
-import org.omg.PortableInterceptor.SUCCESSFUL;
-import org.openqa.selenium.*;
+//import org.junit.Test;
+import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.annotation.Nullable;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.*;
-//import static org.openqa.selenium.support.ui.ExpectedConditions.
+import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOf;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
-import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
-import static org.openqa.selenium.support.ui.ExpectedConditions.urlContains;
 
-public class NewTab {
+//import static org.openqa.selenium.support.ui.ExpectedConditions.
 
+public class Booking {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
     private boolean booking;
     private int i;
     String parentHandle;
     String provider;
+    public WebDriver driver;
+    public WebDriverWait wait;
 
-    @Before
 
-    public void start() {
-        //   ChromeOptions options = new ChromeOptions();
-        //   options.addArguments("start-fullscreen");
-        //    driver = new ChromeDriver(options);
-        //   DesiredCapabilities caps = new DesiredCapabilities();
-        //   caps.setCapability(ChromeOptions.CAPABILITY,options);
-        //    driver = new ChromeDriver(caps);
+    @Test
+    public void Cheapoair(){
+
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 5);
+
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 30);
+
+        Fares ("Cheapoair");
+
+        driver.quit();
+        driver = null;
+
+ }
+
+    @Test
+    public void SmartFares() {
+
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, 5);
+
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF1");
+        wait = new WebDriverWait(driver, 30);
+        Fares ("Smartfares");
+
+        driver.quit();
+        driver = null;}
+
+    @Test
+    public void FareDepot(){
+
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, 5);
+
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF1");
+        wait = new WebDriverWait(driver, 30);
+        Fares ("Faredepot");
+
+        driver.quit();
+        driver = null;}
+
+    @Test
+    public void FareStreet (){
+
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, 5);
+
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF1");
+        wait = new WebDriverWait(driver, 30);
+        Fares ("FareStreet");
+
+                driver.quit();
+                driver = null;
+}
+
+    @Test
+    public void Kiwi (){
+
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, 5);
+
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
+        wait = new WebDriverWait(driver, 30);
+
+        Fares_Redirect ("Kiwi");}
+
+    @Test
+    public void Opodo (){
+
+        Fares_Redirect ("Opodo");}
+
+    @Test
+    public void Expedia (){
+
+        Fares_Redirect ("Expedia");
+        driver.quit();
+        driver = null;
+
     }
 
-   // @Test
-    public void Test_Cheapoair() {
-        Fares ("https://www.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF11","Cheapoair");}
+    @Test
+    public void American_Airlines (){
 
-   // @Test
-    public void Test_SmartFares() {
-        Fares ("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-04&Adult=1&Ref=WF11","Smartfares");}
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, 5);
 
-   // @Test
-    public void Test_FareDepot() {
-        Fares ("https://www.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF1","Faredepot");}
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=LAS&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
+        wait = new WebDriverWait(driver, 30);
 
-  //  @Test
-    public void Test_FareStreet() {
-        Fares ("https://www.onvoya.com/flights/search?From=JFK&To=LGW&Class=E&Departure=2018-02-16&Return=2018-02-26&Adult=1&Ref=WF1","FareStreet");}
-
-      @Test
-    public void Test_Kiwi_Expedia_Opodo() {
-
-          driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-04&Adult=1&Ref=WF11");
-          Fares_Redirect ("Kiwi");
-          Fares_Redirect ("Expedia");
-          Fares_Redirect ("Opodo");}
-
-   // @Test
-    public void Test_American_Airlines() {
         Fares_Redirect ("American Airlines");}
 
-   // @Test
-    public void Test_eDreams() {
-        Fares_Redirect ("eDreams");}
+    @Test
+    public void eDreams (){
 
-    @After
-
-    public void stop() {
+        Fares_Redirect ("Edreams");
         driver.quit();
         driver = null;
     }
 
-    public void Fares (String link, String Provider) {
 
-
-        driver.navigate().to(link);
+    public void Fares (String Provider) {
 
         try {
 
@@ -157,6 +204,7 @@ public class NewTab {
 
             System.out.println("*********************************************************");
             System.out.println("Not fares for "+ Provider);
+
     }}
 
     public void fillingOut() {
@@ -212,6 +260,8 @@ public class NewTab {
 
         driver.findElement(By.xpath("//*[@id=\"book-now-btn\"]")).click();
 
+        wait = new WebDriverWait(driver, 10);
+
         try {
 
             WebElement confirmation = driver.findElement(By.xpath("//*[@id=\"portlet_booking_WAR_bookingportlet\"]/div/div/div/div[2]/div/div[1]/div[1]/div[1]/div[2]"));
@@ -224,6 +274,7 @@ public class NewTab {
         } catch (Exception e) {
             System.out.println("Flight is not available");
             System.out.println("*********************************************************");
+            booking = true;
         }
 
 //        driver.manage().window().maximize();

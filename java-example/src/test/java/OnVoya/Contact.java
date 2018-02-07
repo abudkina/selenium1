@@ -1,4 +1,4 @@
-package ru.stqa.training.selenium;
+package OnVoya;
 
 import org.junit.After;
 import org.junit.Before;

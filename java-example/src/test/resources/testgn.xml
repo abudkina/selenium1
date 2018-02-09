@@ -6,7 +6,7 @@
     <test name="1 Parallel test" preserve-order="true">
         <parameter name="myparam" value="bla"/>
         <classes>
-            <class name="ru.stqa.training.selenium.Final_web2.Booking">
+            <class name="Web2.Booking">
                 <methods>
                     <include name="FareStreet"/>
                     <include name="SmartFares"/>
@@ -18,7 +18,7 @@
     <test name="2 Parallel test" preserve-order="true">
         <parameter name="myparam" value="blabla"/>
         <classes>
-            <class name="ru.stqa.training.selenium.Final_web2.Booking">
+            <class name="Web2.Booking">
                 <methods>
                     <include name="Cheapoair"/>
                     <include name="FareDepot"/>
@@ -31,7 +31,7 @@
     <test name="3 Parallel test" preserve-order="true">
         <parameter name="myparam" value="blablabla"/>
         <classes>
-            <class name="ru.stqa.training.selenium.Final_web2.Search">
+            <class name="Web2.Search">
             </class>
         </classes>
     </test>
@@ -39,7 +39,7 @@
     <test name="4 Parallel test" preserve-order="true">
         <parameter name="myparam" value="blablablabla"/>
         <classes>
-            <class name="ru.stqa.training.selenium.Final_web2.Booking">
+            <class name="Web2.Booking">
                 <methods>
                     <include name="Kiwi"/>
                     <include name="Opodo"/>
@@ -54,9 +54,9 @@
     <test name="5 Parallel test" preserve-order="true">
         <parameter name="myparam" value="blablablablbla"/>
         <classes>
-            <class name="ru.stqa.training.selenium.Final_web2.Sort">
+            <class name="Web2.Sort">
 		</class>
-            <class name="ru.stqa.training.selenium.Final_web2.Contact">
+            <class name="Web2.Contact">
             </class>
         </classes>
     </test>

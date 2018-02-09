@@ -23,15 +23,20 @@ public class Contact {
 
 //          driver = new ChromeDriver();
 //          wait = new WebDriverWait(driver, 5);
-          driver.navigate().to("http://web2.onvoya.com/contact");
+          //переходим на страницу обратной связи
 
+          driver.navigate().to("http://web2.onvoya.com/contact");
+//заполняем поля
         driver.findElement(By.xpath("//*[@id=\"_contactus_WAR_contactus_name\"]")).sendKeys("Anna");
         driver.findElement(By.xpath("//*[@id=\"_contactus_WAR_contactus_emailAddress\"]")).sendKeys("a.budkina@onvoya.com");
         driver.findElement(By.xpath("//*[@id=\"_contactus_WAR_contactus_comment\"]")).sendKeys("Test comment");
 
         driver.findElement(By.xpath("//*[@id=\"_contactus_WAR_contactus_contact-form\"]/div[5]/button")).click();
 
+        //ищем подтверждение отправки сообщения
+
         WebElement Thanks = driver.findElement(By.xpath("//*[@id=\"formContainer\"]/div"));
+
         wait.until(visibilityOf(Thanks));
     }
 

@@ -123,6 +123,8 @@ public class Booking {
 
     public void Fares (String Provider) {
 
+        //дожидаемся когда пропадет лоадер
+
         try {
 
             WebElement new1 = driver.findElement(By.id("resultMask"));
@@ -131,18 +133,30 @@ public class Booking {
 
         catch (Exception e) { }
 
+        //задаем значение букинга = есть/нет
+
         booking = false;
+
         parentHandle = driver.getWindowHandle(); // Save parent window
+
+        // ищем среди первых 25 fares нужного провайдера
 
         for (i = 1; i < 26; i++) {
 
             String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
+
+          // если есть, то открываем букинг страницу
+
             if (provider_text.equals(Provider)) {
                 driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[2]/div/a")).click();
                 fillingOut();
+
+                // заканчиваем поиски провайдера
+
                 break;
             }}
 
+            // если провайдер не найден, открываем следующие 25 полетов
 
             if (!booking) {
 
@@ -158,7 +172,7 @@ public class Booking {
                         break;
                     }
                 }}
-
+        // если провайдер не найден, открываем следующие 25 полетов
 
             if (!booking) {
 
@@ -173,7 +187,7 @@ public class Booking {
                             break;
                         }
                     }}
-
+        // если провайдер не найден, открываем следующие 25 полетов
             if (!booking) {
 
                 WebElement button = driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button"));
@@ -187,7 +201,7 @@ public class Booking {
                     break;
                 }
             }}
-
+        // если провайдер не найден среди первых 100 полетов -  пишем, что нет fares для провайдера
            if (!booking) {
 
             System.out.println("*********************************************************");
@@ -197,11 +211,16 @@ public class Booking {
 
     public void fillingOut() {
 
+        //ждем загрузки страницы
+
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        //переключаем действие на открытое окно
+
         Set<String> handles = driver.getWindowHandles();
         if (handles.size() > 1) { // Check if more than 1 window is open
             for (String handle : handles) {
@@ -213,6 +232,8 @@ public class Booking {
         }
 
         wait = new WebDriverWait(driver, 5);
+
+        //проверяем, что на букинг странице можно заполнить поля, иначе на ней написано "flight is not available"
 
        try {
 
@@ -229,6 +250,8 @@ public class Booking {
                driver.switchTo().window(parentHandle);
                Assert.assertEquals("111", driver.getTitle());
            }
+
+           //заполняем поля на букинг странице
 
            driver.findElement(By.xpath("//*[@id=\"travellerFirstName1\"]")).sendKeys("Linda");
            driver.findElement(By.xpath("//*[@id=\"travellerMiddleName1\"]")).sendKeys("M.");
@@ -253,6 +276,8 @@ public class Booking {
            Select select = new Select(driver.findElement(By.xpath("//*[@id=\"billingState\"]")));
            select.selectByVisibleText("Alabama");
 
+           //сохраняем название провайдера
+
            String provider_details = driver.findElement(By.xpath("//*[@id=\"booking-form\"]/div/div[2]/div[2]/div/div[2]/div[1]/div[1]/div")).getText();
 
            //детали открываются
@@ -267,6 +292,8 @@ public class Booking {
            driver.findElement(By.xpath("//*[@id=\"book-now-btn\"]")).click();
 
            wait = new WebDriverWait(driver, 10);
+
+           //дожидаемся подтверждения бронирования, иначе полет недоступен
 
            try {
 
@@ -283,6 +310,7 @@ public class Booking {
                booking = true;
            }
 
+           //переключаемся на предыдущее окно
 //        driver.manage().window().maximize();
            driver.close();
            driver.switchTo().window(parentHandle);
@@ -290,6 +318,8 @@ public class Booking {
         }
 
     public void Fares_Redirect (String Provider) {
+
+        //дожидаемся загрузки результатов
 
         provider = Provider;
         try {
@@ -300,6 +330,8 @@ public class Booking {
         }
 
         parentHandle = driver.getWindowHandle(); // Save parent window
+
+        //ищем среди первых 25 полетов нужный провайдер
 
         for (i = 1; i < 26; i++) {
 
@@ -361,6 +393,8 @@ public class Booking {
 
      public void redirect () {
 
+        //переключаемся на открытую страницу
+
          try {
              Thread.sleep(5000);
          } catch (InterruptedException e) {
@@ -376,13 +410,21 @@ public class Booking {
              }
          }
 
+         //проверяем, что url станицы соответствует провайдеру
+
          String URL = driver.getCurrentUrl();
          String providerName = provider.toLowerCase();
          if (provider == "American Airlines") {providerName = "aa";}
          boolean isContain = URL.contains(providerName);
+
+         //если перешли на нужную страницу провайдера
+
          if (isContain==true) { System.out.println("*********************************");
              System.out.println("Redirect is successful for "+ provider);
          booking = true;}
+
+         //если страница не открылась
+
          if (isContain==false) {System.out.println("*********************************");
              System.out.println("NOT SUCCESS FOR "+ provider);}
 

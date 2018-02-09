@@ -21,6 +21,11 @@ public class Links {
     private WebDriverWait wait;
 
 
+    //для каждой ссылки/картинки/города нажимаем на ссылку
+    //перехожим на нее
+    //проверяем title или url
+
+
     @Test(priority = 1)
     public void AboutUs (){
 

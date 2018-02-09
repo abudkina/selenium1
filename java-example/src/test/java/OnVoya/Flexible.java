@@ -1,16 +1,14 @@
-package Web2;
+package OnVoya;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
-import org.testng.annotations.Test;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOf;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class Flexible {
 
@@ -22,7 +20,7 @@ public class Flexible {
 
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 30);
 
 
@@ -65,7 +63,7 @@ public class Flexible {
     @Test (priority =2)
     public void MonthlyCalendar_OneWay () {
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 120);
 
 
@@ -113,7 +111,7 @@ public class Flexible {
 
 //        driver = new ChromeDriver();
 //        wait = new WebDriverWait(driver, 5);
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF1");
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 120);
 
 
@@ -156,7 +154,7 @@ public class Flexible {
     @Test (priority =4)
     public void MonthlyCalendar_RoundWay () {
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF1");
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 120);
 
 

@@ -52,7 +52,7 @@
 </test>
 
     <test name="5 Parallel test" preserve-order="true">
-        <parameter name="myparam" value="blablabla"/>
+        <parameter name="myparam" value="blablablablabla"/>
         <classes>
             <class name="OnVoya.Sort">
             </class>

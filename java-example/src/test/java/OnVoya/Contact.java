@@ -18,22 +18,13 @@ public class Contact {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    @Before
-
-    public void start() {
-        //   ChromeOptions options = new ChromeOptions();
-        //   options.addArguments("start-fullscreen");
-        //    driver = new ChromeDriver(options);
-        //   DesiredCapabilities caps = new DesiredCapabilities();
-        //   caps.setCapability(ChromeOptions.CAPABILITY,options);
-        //    driver = new ChromeDriver(caps);
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        wait = new WebDriverWait (driver, 10);
-    }
 
       @Test
     public void Send()  {
+
+//          driver = new ChromeDriver();
+//          driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//          wait = new WebDriverWait (driver, 10);
 
         driver.navigate().to("https://www.onvoya.com/contact");
 
@@ -47,12 +38,6 @@ public class Contact {
         wait.until(visibilityOf(Thanks));
     }
 
-    @After
-
-    public void stop () {
-        driver.quit();
-        driver = null;
-    }
 
 
 }

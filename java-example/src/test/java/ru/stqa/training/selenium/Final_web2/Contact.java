@@ -13,12 +13,17 @@ import java.util.concurrent.TimeUnit;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
-public class Contact extends Final {
+public class Contact {
+
+    public WebDriver driver;
+    public WebDriverWait wait;
 
       @Test
     public void Send()  {
 
-        driver.navigate().to("http://web2.onvoya.com/contact");
+//          driver = new ChromeDriver();
+//          wait = new WebDriverWait(driver, 5);
+          driver.navigate().to("http://web2.onvoya.com/contact");
 
         driver.findElement(By.xpath("//*[@id=\"_contactus_WAR_contactus_name\"]")).sendKeys("Anna");
         driver.findElement(By.xpath("//*[@id=\"_contactus_WAR_contactus_emailAddress\"]")).sendKeys("a.budkina@onvoya.com");

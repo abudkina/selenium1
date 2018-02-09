@@ -5,7 +5,7 @@ package ru.stqa.training.selenium.Final_web2;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,60 +17,62 @@ import java.util.concurrent.TimeUnit;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
-public class Search extends Final{
 
 
-  //  @Test
-    public void TestRound()  {
+public class Search {
 
-        SearchBest("JFK","LGW");
-        SearchAll("SFO","DEL");
-        SearchBest("DXB","LAX");
-        SearchAll("DME","IST");
-    }
+    public WebDriver driver;
+    public WebDriverWait wait;
 
-      @Test
+
+      @Test (priority  = 1)
     public void TestRound1()  {
 
+          driver = new ChromeDriver();
+          wait = new WebDriverWait(driver, 5);
+
         SearchBest("JFK","LGW");
     }
 
-    @Test
+    @Test (priority  = 2)
     public void TestRound2()  {
 
         SearchAll("SFO","DEL");
     }
 
-    @Test
+    @Test (priority  = 3)
     public void TestRound3()  {
 
         SearchBest("DXB","LAX");
     }
 
-    @Test
+    @Test (priority  = 4)
     public void TestRound4()  {
 
         SearchAll("DME","IST");
     }
 
 
-    @Test
+    @Test (priority  = 5)
     public void TestOne1()  {
 
         SearchBestOne("JFK","LGW"); }
 
-    @Test
+    @Test (priority  = 6)
     public void TestOne2()  {
         SearchAllOne("BGC", "BCN");}
 
-    @Test
+    @Test (priority  = 7)
     public void TestOne3()  {
         SearchBestOne("POI","DUB");}
 
-    @Test
+    @Test (priority  = 8)
     public void TestOne4()  {
 
         SearchAllOne("NUR", "VRN");
+
+        driver.quit();
+        driver = null;
     }
 
 

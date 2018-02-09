@@ -2,7 +2,7 @@ package OnVoya;
 
         import  org.junit.After;
         import org.junit.Before;
-        import org.junit.Test;
+        import org.testng.annotations.Test;
         import org.openqa.selenium.By;
         import org.openqa.selenium.WebDriver;
         import org.openqa.selenium.WebElement;
@@ -21,16 +21,13 @@ public class Sort {
  private WebDriver driver;
     private WebDriverWait wait;
 
-    @Before
-
-    public void start() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        wait = new WebDriverWait (driver, 30);
-    }
 
     @Test
     public void Sort() {
+
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wait = new WebDriverWait (driver, 30);
 
         driver.navigate().to("https://www.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Child=1&Ref=WF1");
         WebElement new1 = driver.findElement(By.id("resultMask"));
@@ -159,26 +156,14 @@ public class Sort {
         String thirdAirline_2 = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[10]/div/div/div[1]/div[1]/div/div/div[3]/div[1]/div/ul/li[2]")).getText();
         String fourthAirline = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[15]/div/div/div[1]/div[1]/div/div/div[1]/div[1]/div/ul/li[2]")).getText();
         String fourthAirline_2 = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[15]/div/div/div[1]/div[1]/div/div/div[3]/div[1]/div/ul/li[2]")).getText();
-        if (firstAirline.equals(secondAirline)){
-            if (firstAirline_2.equals(secondAirline_2)){
-                if (thirdAirline.equals(fourthAirline)){
-                    if (thirdAirline_2.equals(fourthAirline_2)){
-                        if (secondAirline.equals(thirdAirline)){
-                            if (airline.equals(firstAirline)){
+        if ((firstAirline.equals(secondAirline)) && (firstAirline_2.equals(secondAirline_2)) && (thirdAirline.equals(fourthAirline)) && (thirdAirline_2.equals(fourthAirline_2))
+                &&(thirdAirline_2.equals(fourthAirline_2)) && (secondAirline.equals(thirdAirline)) && (airline.equals(firstAirline)) ){
 
-                        System.out.println("Sort Airline working: " + "1 - " + firstAirline + " 5 - " + secondAirline + " 10 - " + thirdAirline + " 15 - " + fourthAirline);
-                        //else {System.out.println("*****Sort Airline is not working");}
-                    }
-                }
-            }
-        } }}}
-
-
-    @After
-
-    public void stop () {
-        driver.quit();
-        driver = null;
+            System.out.println("Sort Airline working: " + "1 - " + firstAirline + " 5 - " + secondAirline + " 10 - " + thirdAirline + " 15 - " + fourthAirline);
+            //else {System.out.println("*****Sort Airline is not working");}
+        }
+        else {System.out.println(" Sorting is not working");}
     }
 }
+
 

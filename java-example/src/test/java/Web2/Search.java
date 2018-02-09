@@ -1,4 +1,4 @@
-package ru.stqa.training.selenium.Final_web2;
+package Web2;
 /**
  * Created by budki on 31.01.2018.
  */

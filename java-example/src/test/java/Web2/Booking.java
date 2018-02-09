@@ -1,4 +1,4 @@
-package ru.stqa.training.selenium.Final_web2;
+package Web2;
 
 //import com.sun.tools.internal.xjc.Driver;
 

@@ -16,7 +16,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOf;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 
-public class Sort {
+public class Sort{
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -31,7 +31,7 @@ public class Sort {
         //переходим на страницу
 
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Child=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-07-04&Return=2018-07-08&Adult=1&Child=1&Ref=WF1");
 
         //дожидаемся загрузки результатов
 
@@ -85,10 +85,16 @@ public class Sort {
 
         sortPrice();
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[4]/label")).click();
+
         //check price 1-26 fares
 
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[3]/div/div[2]/div[1]/ul/li[4]/label/span[1]")).click();
         sortAirlines(driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[3]/div/div[2]/div[1]/ul/li[4]/label/span[1]")));
+
+        driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[3]/div/div[2]/div[1]/ul/li[4]/label/span[1]")).click();
+        driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[3]/div/div[2]/div[1]/ul/li[1]/label/span[1]")).click();
+
+        sortAirlines(driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[3]/div/div[2]/div[1]/ul/li[1]/label/span[1]")));
 
         wait.until(titleIs("Search, Find, Book and Save on Flights - OnVoya"));
 
@@ -136,7 +142,7 @@ public class Sort {
         else {System.out.println("*****Min prices are not equal");}
     }
 
-    private void sortPrice () {
+    public void sortPrice () {
 
         for (int i=1;i<24;i++){
 
@@ -170,5 +176,3 @@ public class Sort {
             Assert.assertEquals("111", driver.getTitle());}
                 }
             }}
-
-

@@ -77,6 +77,9 @@ public class Sort_Best {
             System.out.println("Sorting by Best Values is working well");
 
         }
+
+        driver.quit();
+        driver = null;
     }
 
 

@@ -86,6 +86,11 @@ public class Sort {
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[3]/div/div[2]/div[1]/ul/li[4]/label/span[1]")).click();
         sortAirlines(driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[3]/div/div[2]/div[1]/ul/li[4]/label/span[1]")));
 
+        driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[3]/div/div[2]/div[1]/ul/li[4]/label/span[1]")).click();
+        driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[3]/div/div[2]/div[1]/ul/li[1]/label/span[1]")).click();
+
+        sortAirlines(driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[3]/div/div[2]/div[1]/ul/li[1]/label/span[1]")));
+
         wait.until(titleIs("Search, Find, Book and Save on Flights - OnVoya"));
 
     }

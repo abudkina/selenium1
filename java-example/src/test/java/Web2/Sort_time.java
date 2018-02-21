@@ -17,6 +17,8 @@ public class Sort_time {
     public WebDriver driver;
     public WebDriverWait wait;
     int result;
+    int length;
+    String a;
 
     @Test (priority =1)
 
@@ -46,13 +48,18 @@ public class Sort_time {
 
         String[] evening = new String[]{"06", "07", "08", "09", "10", "11"};
 
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[4]/div/div[2]/div[1]/ul/li[1]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a);}
+        else {length = 25;}
+
        //early
 
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[4]/div/div[2]/div[1]/ul/li[1]/label/span[1]")).click();
 
         result = 0;
 
-        for (int i=1; i<26; i++) {
+        for (int i=1; i<length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div[1]")).getText();
 
@@ -71,16 +78,21 @@ public class Sort_time {
 
         }
 
-        if (result!=25) {System.out.println("Not Work");}
+        if (result!=length) {System.out.println("Not Work");}
 
         //morning
 
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[4]/div/div[2]/div[1]/ul/li[1]/label/span[1]")).click();
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[4]/div/div[2]/div[1]/ul/li[2]/label/span[1]")).click();
 
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[4]/div/div[2]/div[1]/ul/li[2]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a);}
+        else {length = 25;}
+
         result = 0;
 
-        for (int i=1; i<26; i++) {
+        for (int i=1; i<length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div[1]")).getText();
 
@@ -98,16 +110,21 @@ public class Sort_time {
             }
         }
 
-        if (result!=25) {System.out.println("Not Work");}
+        if (result!=length) {System.out.println("Not Work");}
 
         //noon
 
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[4]/div/div[2]/div[1]/ul/li[2]/label/span[1]")).click();
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[4]/div/div[2]/div[1]/ul/li[3]/label/span[1]")).click();
 
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[4]/div/div[2]/div[1]/ul/li[3]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a);}
+        else {length = 25;}
+
         result = 0;
 
-        for (int i=1; i<26; i++) {
+        for (int i=1; i<length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div[1]")).getText();
 
@@ -127,7 +144,7 @@ public class Sort_time {
 
         }
 
-        if (result!=25) {System.out.println("Not Work");}
+        if (result!=length) {System.out.println("Not Work");}
 
         //evening
 
@@ -135,7 +152,12 @@ public class Sort_time {
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[4]/div/div[2]/div[1]/ul/li[4]/label/span[1]")).click();
         result = 0;
 
-        for (int i=1; i<26; i++) {
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[4]/div/div[2]/div[1]/ul/li[4]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a);}
+        else {length = 25;}
+
+        for (int i=1; i<length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div[1]")).getText();
 
@@ -155,7 +177,7 @@ public class Sort_time {
 
         }
 
-        if (result!=25) {System.out.println("Not Work");}
+        if (result!=length) {System.out.println("Not Work");}
 
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[4]/div/div[2]/div[1]/ul/li[4]/label/span[1]")).click();
     }
@@ -184,9 +206,14 @@ public class Sort_time {
 
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[5]/div/div[2]/div[1]/ul/li[1]/label/span[1]")).click();
 
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[5]/div/div[2]/div[1]/ul/li[1]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a);}
+        else {length = 25;}
+
         result = 0;
 
-        for (int i=1; i<26; i++) {
+        for (int i=1; i<length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[4]/div[1]")).getText();
 
@@ -205,15 +232,20 @@ public class Sort_time {
             }
 
         }
-        if (result!=25) {System.out.println("Not Work");}
+        if (result!=length) {System.out.println("Not Work");}
         //morning
 
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[5]/div/div[2]/div[1]/ul/li[1]/label/span[1]")).click();
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[5]/div/div[2]/div[1]/ul/li[2]/label/span[1]")).click();
 
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[5]/div/div[2]/div[1]/ul/li[2]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a);}
+        else {length = 25;}
+
         result = 0;
 
-        for (int i=1; i<26; i++) {
+        for (int i=1; i<length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[4]/div[1]")).getText();
 
@@ -232,7 +264,7 @@ public class Sort_time {
             }
         }
 
-        if (result!=25) {System.out.println("Not Work");}
+        if (result!=length) {System.out.println("Not Work");}
         //noon
 
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[5]/div/div[2]/div[1]/ul/li[2]/label/span[1]")).click();
@@ -240,7 +272,12 @@ public class Sort_time {
 
         result = 0;
 
-        for (int i=1; i<26; i++) {
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[5]/div/div[2]/div[1]/ul/li[3]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a);}
+        else {length = 25;}
+
+        for (int i=1; i<length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[4]/div[1]")).getText();
 
@@ -258,7 +295,7 @@ public class Sort_time {
 
             }
         }
-            if (result!=25) {System.out.println("Not Work");}
+            if (result!=length) {System.out.println("Not Work");}
 
         //evening
 
@@ -267,7 +304,12 @@ public class Sort_time {
 
         result = 0;
 
-        for (int i=1; i<26; i++) {
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[5]/div/div[2]/div[1]/ul/li[4]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a);}
+        else {length = 25;}
+
+        for (int i=1; i<length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[4]/div[1]")).getText();
 
@@ -287,7 +329,7 @@ public class Sort_time {
 
         }
 
-        if (result!=25) {System.out.println("Not Work");}
+        if (result!=length) {System.out.println("Not Work");}
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[5]/div/div[2]/div[1]/ul/li[4]/label/span[1]")).click();
     }
 
@@ -298,7 +340,7 @@ public class Sort_time {
 //        driver = new ChromeDriver();
 //        wait = new WebDriverWait(driver, 5);
         driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF1");
-        wait = new WebDriverWait(driver, 50);
+        wait = new WebDriverWait(driver, 70);
 
         WebElement new1 = driver.findElement(By.id("resultMask"));
         wait.until(invisibilityOf(new1));
@@ -317,7 +359,12 @@ public class Sort_time {
 
         result = 0;
 
-        for (int i=1; i<26; i++) {
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[6]/div/div[2]/div[1]/ul/li[1]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a);}
+        else {length = 25;}
+
+        for (int i=1; i<length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[2]/div[1]")).getText();
 
@@ -336,7 +383,7 @@ public class Sort_time {
             }
 
         }
-        if (result!=25) {System.out.println("Not Work");}
+        if (result!=length) {System.out.println("Not Work");}
         //morning
 
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[6]/div/div[2]/div[1]/ul/li[1]/label/span[1]")).click();
@@ -344,7 +391,12 @@ public class Sort_time {
 
         result = 0;
 
-        for (int i=1; i<26; i++) {
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[6]/div/div[2]/div[1]/ul/li[2]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a);}
+        else {length = 25;}
+
+        for (int i=1; i<length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[2]/div[1]")).getText();
 
@@ -363,7 +415,7 @@ public class Sort_time {
             }
         }
 
-        if (result!=25) {System.out.println("Not Work");}
+        if (result!=length) {System.out.println("Not Work");}
         //noon
 
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[6]/div/div[2]/div[1]/ul/li[2]/label/span[1]")).click();
@@ -371,7 +423,12 @@ public class Sort_time {
 
         result = 0;
 
-        for (int i=1; i<26; i++) {
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[6]/div/div[2]/div[1]/ul/li[3]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a);}
+        else {length = 25;}
+
+        for (int i=1; i<length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[2]/div[1]")).getText();
 
@@ -389,7 +446,7 @@ public class Sort_time {
 
             }
         }
-        if (result!=25) {System.out.println("Not Work");}
+        if (result!=length) {System.out.println("Not Work");}
 
         //evening
 
@@ -398,7 +455,12 @@ public class Sort_time {
 
         result = 0;
 
-        for (int i=1; i<26; i++) {
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[6]/div/div[2]/div[1]/ul/li[4]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a);}
+        else {length = 25;}
+
+        for (int i=1; i<length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[2]/div[1]")).getText();
 
@@ -418,7 +480,7 @@ public class Sort_time {
 
         }
 
-        if (result!=25) {System.out.println("Not Work");}
+        if (result!=length) {System.out.println("Not Work");}
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[6]/div/div[2]/div[1]/ul/li[4]/label/span[1]")).click();
     }
 
@@ -448,7 +510,12 @@ public class Sort_time {
 
         result = 0;
 
-        for (int i=1; i<26; i++) {
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[7]/div/div[2]/div[1]/ul/li[1]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a);}
+        else {length = 25;}
+
+        for (int i=1; i<length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[4]/div[1]")).getText();
 
@@ -467,7 +534,7 @@ public class Sort_time {
             }
 
         }
-        if (result!=25) {System.out.println("Not Work");}
+        if (result!=length) {System.out.println("Not Work");}
         //morning
 
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[7]/div/div[2]/div[1]/ul/li[1]/label/span[1]")).click();
@@ -475,7 +542,12 @@ public class Sort_time {
 
         result = 0;
 
-        for (int i=1; i<26; i++) {
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[7]/div/div[2]/div[1]/ul/li[2]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a);}
+        else {length = 25;}
+
+        for (int i=1; i<length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[4]/div[1]")).getText();
 
@@ -494,7 +566,7 @@ public class Sort_time {
             }
         }
 
-        if (result!=25) {System.out.println("Not Work");}
+        if (result!=length) {System.out.println("Not Work");}
         //noon
 
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[7]/div/div[2]/div[1]/ul/li[2]/label/span[1]")).click();
@@ -502,7 +574,12 @@ public class Sort_time {
 
         result = 0;
 
-        for (int i=1; i<26; i++) {
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[7]/div/div[2]/div[1]/ul/li[3]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a);}
+        else {length = 25;}
+
+        for (int i=1; i<length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[4]/div[1]")).getText();
 
@@ -520,7 +597,7 @@ public class Sort_time {
 
             }
         }
-        if (result!=25) {System.out.println("Not Work");}
+        if (result!=length) {System.out.println("Not Work");}
 
         //evening
 
@@ -529,7 +606,12 @@ public class Sort_time {
 
         result = 0;
 
-        for (int i=1; i<26; i++) {
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[7]/div/div[2]/div[1]/ul/li[4]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a);}
+        else {length = 25;}
+
+        for (int i=1; i<length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[4]/div[1]")).getText();
 
@@ -549,13 +631,12 @@ public class Sort_time {
 
         }
 
-        if (result!=25) {System.out.println("Not Work");}
+        if (result!=length) {System.out.println("Not Work");}
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[7]/div/div[2]/div[1]/ul/li[4]/label/span[1]")).click();
 
         driver.quit();
         driver = null;
 
     }
-
 }
 

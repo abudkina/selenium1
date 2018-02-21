@@ -15,11 +15,11 @@ import java.util.concurrent.TimeUnit;
 import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOf;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
-
 public class Sort{
 
     private WebDriver driver;
     private WebDriverWait wait;
+
 
     @Test
     public void Sorting() {
@@ -48,6 +48,8 @@ public class Sort{
         sortRangePrice(driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[1]/label/span[1]/em[1]")),
                 driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[1]/div/div/div[1]/div[2]/div[1]/div[1]/span"))); //1 range is selected
 
+
+
         //check price 1 - 26 fares
 
         sortPrice();
@@ -68,6 +70,7 @@ public class Sort{
 
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[2]/label")).click();
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[3]/label")).click();
+
         sortRangePriceAfter( driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[3]/label/span[1]/em[1]")), //first price
                 driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[1]/div/div/div[1]/div[2]/div[1]/div[1]/span"))); // first fare
 
@@ -78,6 +81,7 @@ public class Sort{
         // 4 range price
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[3]/label")).click();
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[4]/label")).click();
+
         sortRangePriceAfter(driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[4]/label/span[1]/em[1]")), //first price
                 driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[1]/div/div/div[1]/div[2]/div[1]/div[1]/span"))); // first fare
 
@@ -104,16 +108,6 @@ public class Sort{
 
         a.click();
         System.out.println("Details are opened");}
-
-//    private void SortStops_1 () {
-//
-//        driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[2]/div/div[2]/div[1]/ul/li[2]/label/span[1]")).click();
-//
-//
-//        String firstStop = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[1]/div/div/div[1]/div[1]/div/div/div[1]/div[3]/div[2]")).getText();
-//        int firstNumber = Integer.parseInt(firstStop);
-//
-//    }
 
     private void fareRules() { // доделать!
 

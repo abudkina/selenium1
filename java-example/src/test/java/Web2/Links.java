@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
@@ -19,6 +20,8 @@ public class Links {
 
     private WebDriver driver;
     private WebDriverWait wait;
+    String parentHandle;
+    String provider;
 
 
     //для каждой ссылки/картинки/города нажимаем на ссылку
@@ -245,6 +248,224 @@ public class Links {
         driver.navigate().to("http://web2.onvoya.com/"); // phuket
         driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_FdObAQifMTdF\"]/div/div/div/div[1]/div/div/div/div[3]/ul/li[7]")).click();
         Assert.assertEquals("http://web2.onvoya.com/phuket/", driver.getCurrentUrl());
+    }
+
+        @Test(priority = 35)
+
+        public void Hotels(){
+
+            driver.get ("http://web2.onvoya.com");
+            parentHandle = driver.getWindowHandle(); // Save parent window
+
+            driver.findElement(By.xpath("//*[@id=\"layout_6\"]/a/span[2]")).click();
+
+            //переключаем действие на открытое окно
+
+            Set<String> handles = driver.getWindowHandles();
+            if (handles.size() > 1) { // Check if more than 1 window is open
+                for (String handle : handles) {
+                    driver.switchTo().window(handle);
+                    if (!parentHandle.equals(handle)) {
+                        break;
+                    }
+                }
+            }
+
+
+            String URL = driver.getCurrentUrl();
+            boolean isContain = URL.contains("http://hotels.onvoya.com/");
+
+            //если перешли на нужную страницу провайдера
+
+            if (isContain==true) { System.out.println("*********************************");
+                System.out.println("Redirect is successful for Hotels"); }
+
+            //если страница не открылась
+
+           else {System.out.println("*********************************");
+                System.out.println("NOT SUCCESS FOR HOTELS");}
+
+            driver.close();
+            driver.switchTo().window(parentHandle); }
+
+        @Test(priority = 36)
+
+        public void Cars(){
+
+        parentHandle = driver.getWindowHandle(); // Save parent window
+
+        driver.findElement(By.xpath("//*[@id=\"layout_7\"]/a/span[2]")).click();
+
+        //переключаем действие на открытое окно
+
+        Set<String> handles = driver.getWindowHandles();
+        if (handles.size() > 1) { // Check if more than 1 window is open
+            for (String handle : handles) {
+                driver.switchTo().window(handle);
+                if (!parentHandle.equals(handle)) {
+                    break;
+                }
+            }
+        }
+
+        String URL = driver.getCurrentUrl();
+        boolean isContain = URL.contains("http://cars.cartrawler.com/onvoya#/searchcars");
+
+        //если перешли на нужную страницу провайдера
+
+        if (isContain==true) { System.out.println("*********************************");
+            System.out.println("Redirect is successful for Cars"); }
+
+        //если страница не открылась
+
+        else {System.out.println("*********************************");
+            System.out.println("NOT SUCCESS FOR CARS");}
+
+        driver.close();
+        driver.switchTo().window(parentHandle); }
+
+        @Test(priority = 37)
+
+        public void FaceBook(){
+
+        parentHandle = driver.getWindowHandle(); // Save parent window
+
+        driver.findElement(By.xpath("/html/body/div/div[2]/footer/div/div[1]/div/div[2]/ul/li[1]/a/i")).click();
+
+        //переключаем действие на открытое окно
+
+        Set<String> handles = driver.getWindowHandles();
+        if (handles.size() > 1) { // Check if more than 1 window is open
+            for (String handle : handles) {
+                driver.switchTo().window(handle);
+                if (!parentHandle.equals(handle)) {
+                    break;
+                }
+            }
+        }
+
+        String URL = driver.getCurrentUrl();
+        boolean isContain = URL.contains("https://www.facebook.com/onvoya");
+
+        //если перешли на нужную страницу провайдера
+
+        if (isContain==true) { System.out.println("*********************************");
+            System.out.println("Redirect is successful for Facebook"); }
+
+        //если страница не открылась
+
+        else {System.out.println("*********************************");
+            System.out.println("NOT SUCCESS FOR FACEBOOK");}
+
+        driver.close();
+        driver.switchTo().window(parentHandle); }
+
+        @Test(priority = 38)
+
+        public void Twitter(){
+
+        parentHandle = driver.getWindowHandle(); // Save parent window
+
+        driver.findElement(By.xpath("/html/body/div/div[2]/footer/div/div[1]/div/div[2]/ul/li[2]/a/i")).click();
+
+        //переключаем действие на открытое окно
+
+        Set<String> handles = driver.getWindowHandles();
+        if (handles.size() > 1) { // Check if more than 1 window is open
+            for (String handle : handles) {
+                driver.switchTo().window(handle);
+                if (!parentHandle.equals(handle)) {
+                    break;
+                }
+            }
+        }
+
+        String URL = driver.getCurrentUrl();
+        boolean isContain = URL.contains("https://twitter.com/onvoya");
+
+        //если перешли на нужную страницу провайдера
+
+        if (isContain==true) { System.out.println("*********************************");
+            System.out.println("Redirect is successful for Twitter"); }
+
+        //если страница не открылась
+
+        else {System.out.println("*********************************");
+            System.out.println("NOT SUCCESS FOR TWITTER");}
+
+        driver.close();
+        driver.switchTo().window(parentHandle); }
+
+        @Test(priority = 39)
+
+        public void Instagram(){
+
+        parentHandle = driver.getWindowHandle(); // Save parent window
+
+        driver.findElement(By.xpath("/html/body/div/div[2]/footer/div/div[1]/div/div[2]/ul/li[3]/a/i")).click();
+
+        //переключаем действие на открытое окно
+
+        Set<String> handles = driver.getWindowHandles();
+        if (handles.size() > 1) { // Check if more than 1 window is open
+            for (String handle : handles) {
+                driver.switchTo().window(handle);
+                if (!parentHandle.equals(handle)) {
+                    break;
+                }
+            }
+        }
+
+        String URL = driver.getCurrentUrl();
+        boolean isContain = URL.contains("https://www.instagram.com/onvoya/");
+
+        //если перешли на нужную страницу провайдера
+
+        if (isContain==true) { System.out.println("*********************************");
+            System.out.println("Redirect is successful for Instagram"); }
+
+        //если страница не открылась
+
+        else {System.out.println("*********************************");
+            System.out.println("NOT SUCCESS FOR INSTAGRAM");}
+
+        driver.close();
+        driver.switchTo().window(parentHandle); }
+
+       @Test(priority = 40)
+
+       public void Apple(){
+
+        parentHandle = driver.getWindowHandle(); // Save parent window
+
+        driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_TjTYvta2iccX\"]/div/div/div/div[1]/a/span/span[2]")).click();
+
+        //переключаем действие на открытое окно
+
+        Set<String> handles = driver.getWindowHandles();
+        if (handles.size() > 1) { // Check if more than 1 window is open
+            for (String handle : handles) {
+                driver.switchTo().window(handle);
+                if (!parentHandle.equals(handle)) {
+                    break;
+                }
+            }
+        }
+
+        String URL = driver.getCurrentUrl();
+        boolean isContain = URL.contains("https://itunes.apple.com/us/app/id1298953393");
+
+        //если перешли на нужную страницу провайдера
+
+        if (isContain==true) { System.out.println("*********************************");
+            System.out.println("Redirect is successful for Apple"); }
+
+        //если страница не открылась
+
+        else {System.out.println("*********************************");
+            System.out.println("NOT SUCCESS FOR APPLE");}
+
+        driver.close();
         driver.quit();
         driver = null;
     }

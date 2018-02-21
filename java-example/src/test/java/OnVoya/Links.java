@@ -239,6 +239,8 @@ public class Links {
     public void Phuket_Cities(){
         driver.navigate().to("http://www.onvoya.com/"); // phuket
         driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_FdObAQifMTdF\"]/div/div/div/div[1]/div/div/div/div[3]/ul/li[7]")).click();
-        Assert.assertEquals("https://www.onvoya.com/phuket/", driver.getCurrentUrl());}
+        Assert.assertEquals("https://www.onvoya.com/phuket/", driver.getCurrentUrl());
+        driver.quit();
+        driver = null;}
     }
 

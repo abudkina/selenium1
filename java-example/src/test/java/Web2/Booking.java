@@ -5,7 +5,6 @@ package Web2;
 import com.beust.jcommander.Parameters;
 import org.junit.After;
 import org.junit.Before;
-//import org.junit.Test;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.openqa.selenium.By;
@@ -40,7 +39,7 @@ public class Booking {
         wait = new WebDriverWait(driver, 5);
 
         driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF1");
-        wait = new WebDriverWait(driver, 30);
+        wait = new WebDriverWait(driver, 90);
 
         Fares ("Cheapoair");
 
@@ -69,8 +68,8 @@ public class Booking {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=L0N&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
-        wait = new WebDriverWait(driver, 30);
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
+        wait = new WebDriverWait(driver, 90);
 
         Fares ("FareStreet");
 
@@ -112,10 +111,10 @@ public class Booking {
 
         Fares_Redirect ("American Airlines");}
 
-    @Test
+   @Test
     public void eDreams (){
 
-        Fares_Redirect ("Edreams");
+        Fares_Redirect ("eDreams");
         driver.quit();
         driver = null;
     }
@@ -251,6 +250,58 @@ public class Booking {
                Assert.assertEquals("111", driver.getTitle());
            }
 
+           driver.findElement(By.xpath("//*[@id=\"book-now-btn\"]")).click();
+
+           String First_name = "e.g. John";
+           String First_name_error =  driver.findElement(By.xpath("//*[@id=\"booking-form\"]/div/div[1]/div[1]/div/div[2]/div/div[3]/div[1]/div/span")).getText();
+           if (!First_name.equals(First_name_error)){System.out.println("Error");}
+
+           String Last_name = "e.g. Smith";
+           String Last_name_error =  driver.findElement(By.xpath("//*[@id=\"booking-form\"]/div/div[1]/div[1]/div/div[2]/div/div[3]/div[3]/div/span")).getText();
+           if (!Last_name.equals(Last_name_error)){System.out.println("Error");}
+
+           String Birthday = "e.g. MM/DD/YYYY";
+           String Birthday_error =  driver.findElement(By.xpath("//*[@id=\"booking-form\"]/div/div[1]/div[1]/div/div[2]/div/div[4]/div[1]/div/span")).getText();
+           if (!Birthday.equals(Birthday_error)){System.out.println("Error");}
+
+           String Email = "e.g. email@email.com";
+           String Email_error =  driver.findElement(By.xpath("//*[@id=\"booking-form\"]/div/div[1]/div[2]/div/div[2]/div[1]/div[1]/div/span")).getText();
+           if (!Email.equals(Email_error)){System.out.println("Error");}
+
+           String Number = "e.g. +1 123 456 78 90";
+           String Number_error =  driver.findElement(By.xpath("//*[@id=\"booking-form\"]/div/div[1]/div[2]/div/div[2]/div[1]/div[2]/div/span")).getText();
+           if (!Number.equals(Number_error)){System.out.println("Error");}
+
+           String Billing_First_name_error =  driver.findElement(By.xpath("//*[@id=\"booking-form\"]/div/div[1]/div[3]/div/div[2]/div[1]/div[1]/div/span")).getText();
+           if (!First_name.equals(Billing_First_name_error)){System.out.println("Error");}
+
+           String Billing_Last_name_error =  driver.findElement(By.xpath("//*[@id=\"booking-form\"]/div/div[1]/div[3]/div/div[2]/div[1]/div[2]/div/span")).getText();
+           if (!Last_name.equals(Billing_Last_name_error)){System.out.println("Error");}
+
+           String Address = "e.g. 123 Main Street";
+           String Address_error =  driver.findElement(By.xpath("//*[@id=\"booking-form\"]/div/div[1]/div[3]/div/div[2]/div[2]/div[1]/div/span")).getText();
+           if (!Address.equals(Address_error)){System.out.println("Error");}
+
+           String City = "e.g. New York";
+           String City_error =  driver.findElement(By.xpath("//*[@id=\"booking-form\"]/div/div[1]/div[3]/div/div[2]/div[2]/div[2]/div/span")).getText();
+           if (!City.equals(City_error)){System.out.println("Error");}
+
+           String Zip = "e.g. 12345";
+           String Zip_error =  driver.findElement(By.xpath("//*[@id=\"booking-form\"]/div/div[1]/div[3]/div/div[2]/div[3]/div[3]/div/span")).getText();
+           if (!Zip.equals(Zip_error)){System.out.println("Error");}
+
+           String Card = "e.g. XXXX-XXXX-XXXX-XXXX";
+           String Card_error =  driver.findElement(By.xpath("//*[@id=\"booking-form\"]/div/div[1]/div[3]/div/div[2]/div[4]/div[1]/div/div/span")).getText();
+           if (!Card.equals(Card_error)){System.out.println("Error");}
+
+           String Expiration = "e.g. MM/YY";
+           String Expiration_error =  driver.findElement(By.xpath("//*[@id=\"booking-form\"]/div/div[1]/div[3]/div/div[2]/div[4]/div[2]/div/span")).getText();
+           if (!Expiration.equals(Expiration_error)){System.out.println("Error");}
+
+           String CVV = "e.g. 123";
+           String CVV_error =  driver.findElement(By.xpath("//*[@id=\"booking-form\"]/div/div[1]/div[3]/div/div[2]/div[4]/div[3]/div/span")).getText();
+           if (!CVV.equals(CVV_error)){System.out.println("Error");}
+
            //заполняем поля на букинг странице
 
            driver.findElement(By.xpath("//*[@id=\"travellerFirstName1\"]")).sendKeys("Linda");
@@ -329,7 +380,7 @@ public class Booking {
         } catch (Exception e) {
         }
 
-        parentHandle = driver.getWindowHandle(); // Save parent window
+       parentHandle = driver.getWindowHandle(); // Save parent window
 
         //ищем среди первых 25 полетов нужный провайдер
 
@@ -391,7 +442,7 @@ public class Booking {
             System.out.println("Not fares for "+ provider);
         }}
 
-     public void redirect () {
+    public void redirect () {
 
         //переключаемся на открытую страницу
 
@@ -425,7 +476,7 @@ public class Booking {
 
          //если страница не открылась
 
-         if (isContain==false) {System.out.println("*********************************");
+         else {System.out.println("*********************************");
              System.out.println("NOT SUCCESS FOR "+ provider);}
 
          driver.close();
@@ -433,7 +484,3 @@ public class Booking {
      }
 
 }
-
-
-
-

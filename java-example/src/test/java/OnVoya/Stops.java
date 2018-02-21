@@ -1,4 +1,4 @@
-package Web2;
+package OnVoya;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOf;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class Stops {
 
@@ -26,7 +25,7 @@ public class Stops {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-04-01&Adult=1&Ref=WF1");
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-04-01&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
 
         try {

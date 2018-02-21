@@ -91,11 +91,21 @@ public class Search {
         driver.findElement(By.xpath("//*[@id=\"searchSelected\"]")).click();
         driver.findElement(By.xpath("//*[@id=\"round-trip\"]/div/div[1]/div[1]/div/input")).sendKeys(" ");
         driver.findElement(By.xpath("//*[@id=\"round-trip\"]/div/div[1]/div[3]/div/input")).sendKeys(to); // находит по элементу поле и вставляет значение
-        wait.until(elementToBeClickable(By.xpath("//*[@id=\"searchSelected\"]")));
+
+        try {
+            Thread.sleep(700);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+//        wait.until(elementToBeClickable(By.xpath("//*[@id=\"searchSelected\"]")));
         driver.findElement(By.xpath("//*[@id=\"searchSelected\"]")).click();
         driver.findElement(By.xpath("//*[@id=\"round-trip\"]/div/div[1]/div[3]/div/input")).sendKeys(" ");
+        //нажимаем на show best
+
         driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[2]/div[2]/div[1]/div[2]")).click();
         System.out.println("Round - BEST " + from + " - " + to);
+        //дожидаемся title страницы
         wait.until(titleIs("Search, Find, Book and Save on Flights - OnVoya"));
 
     }
@@ -110,9 +120,19 @@ public class Search {
         driver.findElement(By.xpath("//*[@id=\"searchSelected\"]")).click();
         driver.findElement(By.xpath("//*[@id=\"round-trip\"]/div/div[1]/div[1]/div/input")).sendKeys(" ");
         driver.findElement(By.xpath("//*[@id=\"round-trip\"]/div/div[1]/div[3]/div/input")).sendKeys(to); // находит по элементу поле и вставляет значение
-        wait.until(elementToBeClickable(By.xpath("//*[@id=\"searchSelected\"]")));
+
+        try {
+            Thread.sleep(700);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+//        wait.until(elementToBeClickable(By.xpath("//*[@id=\"searchSelected\"]")));
         driver.findElement(By.xpath("//*[@id=\"searchSelected\"]")).click();
         driver.findElement(By.xpath("//*[@id=\"round-trip\"]/div/div[1]/div[3]/div/input")).sendKeys(" ");
+
+        //нажимаем на show all
+
         driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[2]/div[2]/div[1]/div[1]")).click();
         System.out.println("Round - ALL " + from + " - " + to);
         wait.until(titleIs("Search, Find, Book and Save on Flights - OnVoya"));
@@ -126,11 +146,22 @@ public class Search {
         driver.findElement(By.xpath("//*[@id=\"oneway-trip\"]/div/div[1]/div[1]/div/input")).sendKeys(from); // находит по элементу поле и вставляет значение
         wait.until(elementToBeClickable(By.xpath("//*[@id=\"searchSelected\"]")));
         driver.findElement(By.xpath("//*[@id=\"searchSelected\"]")).click();
+
         driver.findElement(By.xpath("//*[@id=\"oneway-trip\"]/div/div[1]/div[1]/div/input")).sendKeys(" "); // находит по элементу поле и вставляет значение
         driver.findElement(By.xpath("//*[@id=\"oneway-trip\"]/div/div[1]/div[3]/div/input")).sendKeys(to); // находит по элементу поле и вставляет значение
-        wait.until(elementToBeClickable(By.xpath("//*[@id=\"searchSelected\"]")));
+
+        try {
+            Thread.sleep(700);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+//        wait.until(elementToBeClickable(By.xpath("//*[@id=\"searchSelected\"]")));
         driver.findElement(By.xpath("//*[@id=\"searchSelected\"]")).click();
         driver.findElement(By.xpath("//*[@id=\"oneway-trip\"]/div/div[1]/div[3]/div/input")).sendKeys(" "); // находит по элементу поле и вставляет значение
+
+        //нажимаем на show best
+
         driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[2]/div[2]/div[1]/div[2]")).click();
         System.out.println("OneWay - BEST " + from + " - " + to);
         wait.until(titleIs("Search, Find, Book and Save on Flights - OnVoya"));}
@@ -143,11 +174,22 @@ public class Search {
         wait.until(elementToBeClickable(By.xpath("//*[@id=\"searchSelected\"]")));
         driver.findElement(By.xpath("//*[@id=\"searchSelected\"]")).click();
         driver.findElement(By.xpath("//*[@id=\"oneway-trip\"]/div/div[1]/div[1]/div/input")).sendKeys(" "); // находит по элементу поле и вставляет значение
+
         driver.findElement(By.xpath("//*[@id=\"oneway-trip\"]/div/div[1]/div[3]/div/input")).sendKeys(to); // находит по элементу поле и вставляет значение
-        wait.until(elementToBeClickable(By.xpath("//*[@id=\"searchSelected\"]")));
+
+        try {
+            Thread.sleep(900);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+//        wait.until(elementToBeClickable(By.xpath("//*[@id=\"searchSelected\"]")));
         driver.findElement(By.xpath("//*[@id=\"searchSelected\"]")).click();
         driver.findElement(By.xpath("//*[@id=\"oneway-trip\"]/div/div[1]/div[3]/div/input")).sendKeys(" "); // находит по элементу поле и вставляет значение
-        wait.until(elementToBeClickable(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[2]/div[2]/div[1]/div[1]")));
+//        wait.until(elementToBeClickable(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[2]/div[2]/div[1]/div[1]")));
+
+        //нажимаем на show all
+
         driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[2]/div[2]/div[1]/div[1]")).click();
         System.out.println("OneWay - ALL " + from + " - " + to);
         wait.until(titleIs("Search, Find, Book and Save on Flights - OnVoya"));

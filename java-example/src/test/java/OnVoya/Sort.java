@@ -60,7 +60,7 @@ public class Sort {
 
         sortPrice();
 
-//        //3 range price
+        //3 range price
 
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[2]/label")).click();
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[3]/label")).click();
@@ -99,16 +99,6 @@ public class Sort {
 
         a.click();
         System.out.println("Details are opened");}
-
-    private void SortStops_1 () {
-
-        driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[2]/div/div[2]/div[1]/ul/li[2]/label/span[1]")).click();
-
-
-        String firstStop = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[1]/div/div/div[1]/div[1]/div/div/div[1]/div[3]/div[2]")).getText();
-        int firstNumber = Integer.parseInt(firstStop);
-
-    }
 
     private void fareRules() { // доделать!
 

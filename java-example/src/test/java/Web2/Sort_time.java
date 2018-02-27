@@ -59,7 +59,7 @@ public class Sort_time {
 
         result = 0;
 
-        for (int i=1; i<length; i++) {
+        for (int i=1; i<=length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div[1]")).getText();
 
@@ -92,7 +92,7 @@ public class Sort_time {
 
         result = 0;
 
-        for (int i=1; i<length; i++) {
+        for (int i=1; i<=length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div[1]")).getText();
 
@@ -124,7 +124,7 @@ public class Sort_time {
 
         result = 0;
 
-        for (int i=1; i<length; i++) {
+        for (int i=1; i<=length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div[1]")).getText();
 
@@ -157,7 +157,7 @@ public class Sort_time {
         if (length<25) {length = Integer.parseInt(a);}
         else {length = 25;}
 
-        for (int i=1; i<length; i++) {
+        for (int i=1; i<=length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div[1]")).getText();
 
@@ -213,7 +213,7 @@ public class Sort_time {
 
         result = 0;
 
-        for (int i=1; i<length; i++) {
+        for (int i=1; i<=length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[4]/div[1]")).getText();
 
@@ -245,7 +245,7 @@ public class Sort_time {
 
         result = 0;
 
-        for (int i=1; i<length; i++) {
+        for (int i=1; i<=length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[4]/div[1]")).getText();
 
@@ -277,7 +277,7 @@ public class Sort_time {
         if (length<25) {length = Integer.parseInt(a);}
         else {length = 25;}
 
-        for (int i=1; i<length; i++) {
+        for (int i=1; i<=length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[4]/div[1]")).getText();
 
@@ -309,7 +309,7 @@ public class Sort_time {
         if (length<25) {length = Integer.parseInt(a);}
         else {length = 25;}
 
-        for (int i=1; i<length; i++) {
+        for (int i=1; i<=length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[4]/div[1]")).getText();
 
@@ -364,7 +364,7 @@ public class Sort_time {
         if (length<25) {length = Integer.parseInt(a);}
         else {length = 25;}
 
-        for (int i=1; i<length; i++) {
+        for (int i=1; i<=length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[2]/div[1]")).getText();
 
@@ -396,7 +396,7 @@ public class Sort_time {
         if (length<25) {length = Integer.parseInt(a);}
         else {length = 25;}
 
-        for (int i=1; i<length; i++) {
+        for (int i=1; i<=length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[2]/div[1]")).getText();
 
@@ -428,7 +428,7 @@ public class Sort_time {
         if (length<25) {length = Integer.parseInt(a);}
         else {length = 25;}
 
-        for (int i=1; i<length; i++) {
+        for (int i=1; i<=length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[2]/div[1]")).getText();
 
@@ -460,7 +460,7 @@ public class Sort_time {
         if (length<25) {length = Integer.parseInt(a);}
         else {length = 25;}
 
-        for (int i=1; i<length; i++) {
+        for (int i=1; i<=length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[2]/div[1]")).getText();
 
@@ -515,7 +515,7 @@ public class Sort_time {
         if (length<25) {length = Integer.parseInt(a);}
         else {length = 25;}
 
-        for (int i=1; i<length; i++) {
+        for (int i=1; i<=length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[4]/div[1]")).getText();
 
@@ -547,7 +547,7 @@ public class Sort_time {
         if (length<25) {length = Integer.parseInt(a);}
         else {length = 25;}
 
-        for (int i=1; i<length; i++) {
+        for (int i=1; i<=length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[4]/div[1]")).getText();
 
@@ -579,7 +579,7 @@ public class Sort_time {
         if (length<25) {length = Integer.parseInt(a);}
         else {length = 25;}
 
-        for (int i=1; i<length; i++) {
+        for (int i=1; i<=length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[4]/div[1]")).getText();
 
@@ -611,7 +611,7 @@ public class Sort_time {
         if (length<25) {length = Integer.parseInt(a);}
         else {length = 25;}
 
-        for (int i=1; i<length; i++) {
+        for (int i=1; i<=length; i++) {
 
             String time = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[4]/div[1]")).getText();
 

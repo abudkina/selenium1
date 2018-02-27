@@ -132,7 +132,7 @@ public class Stops {
             driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+ i +"]/div/div[1]/div[2]/div/div[1]/a")).click();
 
             try {
-                Thread.sleep(1500);
+                Thread.sleep(1600);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

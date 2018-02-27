@@ -95,16 +95,11 @@ public class Booking {
     public void Expedia (){
 
         Fares_Redirect ("Expedia");
-        driver.quit();
-        driver = null;
 
     }
 
     @Test
     public void American_Airlines (){
-
-        driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, 5);
 
         driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=LAS&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 30);

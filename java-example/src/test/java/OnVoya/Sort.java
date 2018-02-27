@@ -146,14 +146,12 @@ public class Sort {
 
         String airline = a.getText();
 
-        for (int i=1;i<24;i++){
+        for (int i=1;i<=25;i++){
 
             String firstAirline = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[1]/div/ul/li[2]")).getText();
-            String firstAirline_2 = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[1]/div/ul/li[2]")).getText();
-            String secondAirline = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+(i+1)+"]/div/div/div[1]/div[1]/div/div/div[1]/div[1]/div/ul/li[2]")).getText();
-            String secondAirline_2 = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+(i+1)+"]/div/div/div[1]/div[1]/div/div/div[3]/div[1]/div/ul/li[2]")).getText();
+            String secondAirline = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[1]/div/ul/li[2]")).getText();
 
-            if ((firstAirline.equals(secondAirline)) && (firstAirline_2.equals(secondAirline_2)) && (airline.equals(firstAirline))){
+            if ((airline.equals(secondAirline)) || (airline.equals(firstAirline))){
 
                 System.out.println("Sort Airline working " + firstAirline + " " + secondAirline);
             }

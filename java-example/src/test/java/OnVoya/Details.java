@@ -1,16 +1,13 @@
-package Web2;
+package OnVoya;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOf;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class Details {
 
@@ -35,24 +32,24 @@ public class Details {
         cityD = "New York";
         cityA = "Delhi";
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From="+airportD+"&To="+airportA+"&Class=E&Departure=2018-08-04&Adult=1&Ref=WF1");
+        driver.navigate().to("https://www.onvoya.com/flights/search?From="+airportD+"&To="+airportA+"&Class=E&Departure=2018-08-04&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 120);
 
         WebElement new1 = driver.findElement(By.id("resultMask"));
         wait.until(invisibilityOf(new1));
 
         compareFromToOneWay();
-        }
+    }
 
-     @Test
-     public void detailsFaresRound () {
+    @Test
+    public void detailsFaresRound () {
 
-            driver.navigate().to("http://web2.onvoya.com/flights/search?From="+airportD+"&To="+airportA+"&Class=E&Departure=2018-08-04&Return=2018-08-08&Adult=1&Ref=WF1");
-            wait = new WebDriverWait(driver, 120);
-            WebElement new2 = driver.findElement(By.id("resultMask"));
-            wait.until(invisibilityOf(new2));
+        driver.navigate().to("https://www.onvoya.com/flights/search?From="+airportD+"&To="+airportA+"&Class=E&Departure=2018-08-04&Return=2018-08-08&Adult=1&Ref=WF1");
+        wait = new WebDriverWait(driver, 120);
+        WebElement new2 = driver.findElement(By.id("resultMask"));
+        wait.until(invisibilityOf(new2));
 
-            compareFromToRoundWay();
+        compareFromToRoundWay();
     }
 
     public void compareFromToOneWay () {

@@ -50,8 +50,15 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
         @Test
         public void FareDepot(){
 
-            Fares ("Faredepot");
+            Fares ("Faredepot"); }
 
+        @Test
+        public void FareLogix(){
+
+            driver.navigate().to("https://www.onvoya.com/flights/search?From=YTO&To=NYC&Class=E&Departure=2018-03-08&Adult=1&Ref=WF1");
+            wait = new WebDriverWait(driver, 30);
+
+            Fares ("WestJet");
             driver.quit();
             driver = null;}
 
@@ -62,7 +69,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
             driver = new ChromeDriver();
             wait = new WebDriverWait(driver, 5);
             driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
-            wait = new WebDriverWait(driver, 30);
+            wait = new WebDriverWait(driver, 90);
 
             Fares ("FareStreet");
         }
@@ -216,7 +223,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
                 Assert.assertEquals("111", driver.getTitle());
             }
 
-            driver.findElement(By.xpath("//*[@id=\"travellerelementName1\"]")).sendKeys("Linda");
+            driver.findElement(By.xpath("//*[@id=\"travellerFirstName1\"]")).sendKeys("Linda");
             driver.findElement(By.xpath("//*[@id=\"travellerMiddleName1\"]")).sendKeys("M.");
             driver.findElement(By.xpath("//*[@id=\"travellerLastName1\"]")).sendKeys("Book");
             driver.findElement(By.xpath("//*[@id=\"travellerDOB1\"]")).sendKeys("04231995");
@@ -225,7 +232,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
             driver.findElement(By.xpath("//*[@id=\"confirmEmailAddress\"]")).sendKeys("a.budkina@onvoya.com");
             driver.findElement(By.xpath("//*[@id=\"contactPhoneNo\"]")).sendKeys("+79190100733");
 
-            driver.findElement(By.xpath("//*[@id=\"elementName\"]")).sendKeys("Linda");
+            driver.findElement(By.xpath("//*[@id=\"firstName\"]")).sendKeys("Linda");
             driver.findElement(By.xpath("//*[@id=\"lastName\"]")).sendKeys("Book");
             driver.findElement(By.xpath("//*[@id=\"billingAddress\"]")).sendKeys("123 Main Street");
             driver.findElement(By.xpath("//*[@id=\"billingCity\"]")).sendKeys("New York");

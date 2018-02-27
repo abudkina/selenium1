@@ -58,7 +58,13 @@ public class Booking {
     @Test
     public void FareDepot(){
 
-        Fares ("Faredepot");
+        Fares ("Faredepot"); }
+
+    @Test
+    public void FareLogix(){
+
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=YTO&To=NYC&Class=E&Departure=2018-03-08&Adult=1&Ref=WF1");
+        Fares ("WestJet");
         driver.quit();
         driver = null;}
 

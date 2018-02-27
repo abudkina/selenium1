@@ -21,7 +21,8 @@ public class Sort {
 
  private WebDriver driver;
     private WebDriverWait wait;
-
+    int length;
+    String a;
 
     @Test
     public void Sort() {
@@ -41,6 +42,11 @@ public class Sort {
 
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[1]/label")).click();
 
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[1]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a)-1;}
+        else {length = 25-1;}
+
         sortRangePrice(driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[1]/label/span[1]/em[1]")),
                 driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[1]/div/div/div[1]/div[2]/div[1]/div[1]/span"))); //1 range is selected
 
@@ -53,6 +59,11 @@ public class Sort {
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[1]/label")).click();
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[2]/label")).click();
 
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[2]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a)-1;}
+        else {length = 25-1;}
+
         sortRangePriceAfter(driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[2]/label/span[1]/em[1]")), //first price
                 driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[1]/div/div/div[1]/div[2]/div[1]/div[1]/span"))); // first fare
 
@@ -64,6 +75,12 @@ public class Sort {
 
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[2]/label")).click();
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[3]/label")).click();
+
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[3]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a)-1;}
+        else {length = 25-1;}
+
         sortRangePriceAfter( driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[3]/label/span[1]/em[1]")), //first price
                 driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[1]/div/div/div[1]/div[2]/div[1]/div[1]/span"))); // first fare
 
@@ -74,6 +91,12 @@ public class Sort {
         // 4 range price
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[3]/label")).click();
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[4]/label")).click();
+
+        a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[4]/label/span[2]")).getText();
+        length = Integer.parseInt(a);
+        if (length<25) {length = Integer.parseInt(a)-1;}
+        else {length = 25-1;}
+
         sortRangePriceAfter(driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[4]/label/span[1]/em[1]")), //first price
                 driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[1]/div/div/div[1]/div[2]/div[1]/div[1]/span"))); // first fare
 
@@ -129,7 +152,7 @@ public class Sort {
 
     private void sortPrice () {
 
-        for (int i=1;i<24;i++){
+        for (int i=1;i<length;i++){
 
             String firstFareS = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[2]/div[1]/div[1]/span")).getText();
             int firstFare = Integer.parseInt(firstFareS);

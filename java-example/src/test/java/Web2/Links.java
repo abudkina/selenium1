@@ -71,124 +71,124 @@ public class Links {
         driver.findElement(By.xpath("/html/body/div/div[2]/footer/div/div[2]/div/span[3]/a")).click();
         Assert.assertEquals("Terms - OnVoya", driver.getTitle());}
 
-    @Test(priority = 7)
-    public void Paris_Picture(){
-        driver.navigate().to("http://web2.onvoya.com/"); // paris
-        driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_ANyVkEOKo7rE\"]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[1]/a/span")).click();
-        String City = "Paris";
-
-        String title = driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[1]/h1")).getText();
-        String information = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[1]/div/div/div[1]/h2")).getText();
-        String weather = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[2]/div[1]/div[1]/h4")).getText();
-        String airport = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[3]/div/div/div[2]/h3")).getText();
-
-        if (!title.contains(City) || (!information.contains(City)) || (!weather.contains(City)) || (!airport.contains(City)))
-        {System.out.println("Does not work "+City);}
-
-        Assert.assertEquals("http://web2.onvoya.com/paris/", driver.getCurrentUrl());}
-
-    @Test(priority = 8)
-    public void Bejing_Picture(){
-        driver.navigate().to("http://web2.onvoya.com/"); // beijing
-        driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_ANyVkEOKo7rE\"]/div/div/div/div[1]/div/div/div/div[1]/div[2]/a/span")).click();
-
-        String City = "Bejing";
-
-        String title = driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[1]/h1")).getText();
-        String information = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[1]/div/div/div[1]/h2")).getText();
-        String weather = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[2]/div[1]/div[1]/h4")).getText();
-        String airport = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[3]/div/div/div[2]/h3")).getText();
-
-        if (!title.contains(City) || (!information.contains(City)) || (!weather.contains(City)) || (!airport.contains(City)))
-        {System.out.println("Does not work "+City);}
-
-        Assert.assertEquals("http://web2.onvoya.com/beijing/", driver.getCurrentUrl());}
-
-    @Test(priority = 9)
-    public void Seoul_Picture(){
-        driver.navigate().to("http://web2.onvoya.com/"); // seoul
-        driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_ANyVkEOKo7rE\"]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/a/span/span[1]")).click();
-
-        String City = "Seoul";
-
-        String title = driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[1]/h1")).getText();
-        String information = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[1]/div/div/div[1]/h2")).getText();
-        String weather = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[2]/div[1]/div[1]/h4")).getText();
-        String airport = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[3]/div/div/div[2]/h3")).getText();
-
-        if (!title.contains(City) || (!information.contains(City)) || (!weather.contains(City)) || (!airport.contains(City)))
-        {System.out.println("Does not work "+City);}
-
-        Assert.assertEquals("http://web2.onvoya.com/seoul/", driver.getCurrentUrl());}
-
-    @Test(priority = 10)
-    public void Bangkok_Picture(){
-        driver.navigate().to("http://web2.onvoya.com/"); // bangkok
-        driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_ANyVkEOKo7rE\"]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[3]/a/span")).click();
-
-        String City = "Bangkok";
-
-        String title = driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[1]/h1")).getText();
-        String information = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[1]/div/div/div[1]/h2")).getText();
-        String weather = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[2]/div[1]/div[1]/h4")).getText();
-        String airport = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[3]/div/div/div[2]/h3")).getText();
-
-        if (!title.contains(City) || (!information.contains(City)) || (!weather.contains(City)) || (!airport.contains(City)))
-        {System.out.println("Does not work "+City);}
-
-        Assert.assertEquals("http://web2.onvoya.com/bangkok/", driver.getCurrentUrl());}
-
-    @Test(priority = 11)
-    public void Rome_Picture(){
-        driver.navigate().to("http://web2.onvoya.com/"); // rome
-        driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_ANyVkEOKo7rE\"]/div/div/div/div[1]/div/div/div/div[2]/a/span")).click();
-
-        String City = "Rome";
-
-        String title = driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[1]/h1")).getText();
-        String information = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[1]/div/div/div[1]/h2")).getText();
-        String weather = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[2]/div[1]/div[1]/h4")).getText();
-        String airport = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[3]/div/div/div[2]/h3")).getText();
-
-        if (!title.contains(City) || (!information.contains(City)) || (!weather.contains(City)) || (!airport.contains(City)))
-        {System.out.println("Does not work "+City);}
-
-        Assert.assertEquals("http://web2.onvoya.com/rome/", driver.getCurrentUrl());}
-
-    @Test(priority = 12)
-    public void London_Picture(){
-        driver.navigate().to("http://web2.onvoya.com/"); // london
-        driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_ANyVkEOKo7rE\"]/div/div/div/div[1]/div/div/div/div[3]/a/span/span[1]")).click();
-
-        String City = "London";
-
-        String title = driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[1]/h1")).getText();
-        String information = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[1]/div/div/div[1]/h2")).getText();
-        String weather = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[2]/div[1]/div[1]/h4")).getText();
-        String airport = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[3]/div/div/div[2]/h3")).getText();
-
-        if (!title.contains(City) || (!information.contains(City)) || (!weather.contains(City)) || (!airport.contains(City)))
-        {System.out.println("Does not work "+City);}
-
-        Assert.assertEquals("http://web2.onvoya.com/london/", driver.getCurrentUrl());}
-
-
-    @Test(priority = 13)
-    public void Barcelona_Picture(){
-        driver.navigate().to("http://web2.onvoya.com/"); // barcelona
-        driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_ANyVkEOKo7rE\"]/div/div/div/div[1]/div/div/div/div[4]/a/span")).click();
-
-        String City = "Barcelona";
-
-        String title = driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[1]/h1")).getText();
-        String information = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[1]/div/div/div[1]/h2")).getText();
-        String weather = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[2]/div[1]/div[1]/h4")).getText();
-        String airport = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[3]/div/div/div[2]/h3")).getText();
-
-        if (!title.contains(City) || (!information.contains(City)) || (!weather.contains(City)) || (!airport.contains(City)))
-        {System.out.println("Does not work "+City);}
-
-        Assert.assertEquals("http://web2.onvoya.com/barcelona/", driver.getCurrentUrl());}
+//    @Test(priority = 7)
+//    public void Paris_Picture(){
+//        driver.navigate().to("http://web2.onvoya.com/"); // paris
+//        driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_ANyVkEOKo7rE\"]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[1]/a/span")).click();
+//        String City = "Paris";
+//
+//        String title = driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[1]/h1")).getText();
+//        String information = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[1]/div/div/div[1]/h2")).getText();
+//        String weather = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[2]/div[1]/div[1]/h4")).getText();
+//        String airport = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[3]/div/div/div[2]/h3")).getText();
+//
+//        if (!title.contains(City) || (!information.contains(City)) || (!weather.contains(City)) || (!airport.contains(City)))
+//        {System.out.println("Does not work "+City);}
+//
+//        Assert.assertEquals("http://web2.onvoya.com/paris/", driver.getCurrentUrl());}
+//
+//    @Test(priority = 8)
+//    public void Bejing_Picture(){
+//        driver.navigate().to("http://web2.onvoya.com/"); // beijing
+//        driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_ANyVkEOKo7rE\"]/div/div/div/div[1]/div/div/div/div[1]/div[2]/a/span")).click();
+//
+//        String City = "Bejing";
+//
+//        String title = driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[1]/h1")).getText();
+//        String information = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[1]/div/div/div[1]/h2")).getText();
+//        String weather = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[2]/div[1]/div[1]/h4")).getText();
+//        String airport = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[3]/div/div/div[2]/h3")).getText();
+//
+//        if (!title.contains(City) || (!information.contains(City)) || (!weather.contains(City)) || (!airport.contains(City)))
+//        {System.out.println("Does not work "+City);}
+//
+//        Assert.assertEquals("http://web2.onvoya.com/beijing/", driver.getCurrentUrl());}
+//
+//    @Test(priority = 9)
+//    public void Seoul_Picture(){
+//        driver.navigate().to("http://web2.onvoya.com/"); // seoul
+//        driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_ANyVkEOKo7rE\"]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/a/span/span[1]")).click();
+//
+//        String City = "Seoul";
+//
+//        String title = driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[1]/h1")).getText();
+//        String information = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[1]/div/div/div[1]/h2")).getText();
+//        String weather = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[2]/div[1]/div[1]/h4")).getText();
+//        String airport = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[3]/div/div/div[2]/h3")).getText();
+//
+//        if (!title.contains(City) || (!information.contains(City)) || (!weather.contains(City)) || (!airport.contains(City)))
+//        {System.out.println("Does not work "+City);}
+//
+//        Assert.assertEquals("http://web2.onvoya.com/seoul/", driver.getCurrentUrl());}
+//
+//    @Test(priority = 10)
+//    public void Bangkok_Picture(){
+//        driver.navigate().to("http://web2.onvoya.com/"); // bangkok
+//        driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_ANyVkEOKo7rE\"]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[3]/a/span")).click();
+//
+//        String City = "Bangkok";
+//
+//        String title = driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[1]/h1")).getText();
+//        String information = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[1]/div/div/div[1]/h2")).getText();
+//        String weather = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[2]/div[1]/div[1]/h4")).getText();
+//        String airport = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[3]/div/div/div[2]/h3")).getText();
+//
+//        if (!title.contains(City) || (!information.contains(City)) || (!weather.contains(City)) || (!airport.contains(City)))
+//        {System.out.println("Does not work "+City);}
+//
+//        Assert.assertEquals("http://web2.onvoya.com/bangkok/", driver.getCurrentUrl());}
+//
+//    @Test(priority = 11)
+//    public void Rome_Picture(){
+//        driver.navigate().to("http://web2.onvoya.com/"); // rome
+//        driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_ANyVkEOKo7rE\"]/div/div/div/div[1]/div/div/div/div[2]/a/span")).click();
+//
+//        String City = "Rome";
+//
+//        String title = driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[1]/h1")).getText();
+//        String information = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[1]/div/div/div[1]/h2")).getText();
+//        String weather = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[2]/div[1]/div[1]/h4")).getText();
+//        String airport = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[3]/div/div/div[2]/h3")).getText();
+//
+//        if (!title.contains(City) || (!information.contains(City)) || (!weather.contains(City)) || (!airport.contains(City)))
+//        {System.out.println("Does not work "+City);}
+//
+//        Assert.assertEquals("http://web2.onvoya.com/rome/", driver.getCurrentUrl());}
+//
+//    @Test(priority = 12)
+//    public void London_Picture(){
+//        driver.navigate().to("http://web2.onvoya.com/"); // london
+//        driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_ANyVkEOKo7rE\"]/div/div/div/div[1]/div/div/div/div[3]/a/span/span[1]")).click();
+//
+//        String City = "London";
+//
+//        String title = driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[1]/h1")).getText();
+//        String information = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[1]/div/div/div[1]/h2")).getText();
+//        String weather = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[2]/div[1]/div[1]/h4")).getText();
+//        String airport = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[3]/div/div/div[2]/h3")).getText();
+//
+//        if (!title.contains(City) || (!information.contains(City)) || (!weather.contains(City)) || (!airport.contains(City)))
+//        {System.out.println("Does not work "+City);}
+//
+//        Assert.assertEquals("http://web2.onvoya.com/london/", driver.getCurrentUrl());}
+//
+//
+//    @Test(priority = 13)
+//    public void Barcelona_Picture(){
+//        driver.navigate().to("http://web2.onvoya.com/"); // barcelona
+//        driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_ANyVkEOKo7rE\"]/div/div/div/div[1]/div/div/div/div[4]/a/span")).click();
+//
+//        String City = "Barcelona";
+//
+//        String title = driver.findElement(By.xpath("//*[@id=\"flight-search-form\"]/div[1]/div[1]/h1")).getText();
+//        String information = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[1]/div/div/div[1]/h2")).getText();
+//        String weather = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[2]/div[1]/div[1]/h4")).getText();
+//        String airport = driver.findElement(By.xpath("//*[@id=\"portlet_56_INSTANCE_fMB0Q2OBCEzS\"]/div/div/div/div[1]/div/div[3]/div/div/div[2]/h3")).getText();
+//
+//        if (!title.contains(City) || (!information.contains(City)) || (!weather.contains(City)) || (!airport.contains(City)))
+//        {System.out.println("Does not work "+City);}
+//
+//        Assert.assertEquals("http://web2.onvoya.com/barcelona/", driver.getCurrentUrl());}
 
 
 //        first column

@@ -183,7 +183,7 @@ public class Sort{
 
         String airline = a.getText();
 
-        for (int i=1;i<=25;i++){
+        for (int i=1;i<=20;i++){
 
         String firstAirline = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[1]/div[1]/div/ul/li[2]")).getText();
         String secondAirline = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div/div[1]/div[1]/div/div/div[3]/div[1]/div/ul/li[2]")).getText();

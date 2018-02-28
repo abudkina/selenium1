@@ -31,12 +31,15 @@ public class Sort_Best {
 
         //переходим на страницу
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=MEL&Class=E&Departure=2018-02-27&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=MEL&Class=E&Departure=2018-04-05&Adult=1&Ref=WF1");
         //дожидаемся загрузки результатов
 
-        WebElement new1 = driver.findElement(By.id("resultMask"));
-        wait.until(invisibilityOf(new1));
+        try {
 
+            WebElement new1 = driver.findElement(By.id("resultMask"));
+            wait.until(invisibilityOf(new1));}
+
+        catch (Exception e) {}
 
         driver.findElement(By.xpath("//*[@id=\"sortListContainer\"]/ul/li[3]/span")).click();
 

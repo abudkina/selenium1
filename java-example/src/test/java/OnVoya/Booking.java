@@ -34,7 +34,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
             driver = new ChromeDriver();
             wait = new WebDriverWait(driver, 5);
 
-            driver.navigate().to("https://www.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF1");
+            driver.navigate().to("https://www.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-06&Adult=1&Ref=WF1");
             wait = new WebDriverWait(driver, 30);
 
             Fares ("Cheapoair"); }

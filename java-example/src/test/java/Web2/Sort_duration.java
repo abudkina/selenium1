@@ -22,11 +22,15 @@ public class Sort_duration {
 
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=MEL&Class=E&Departure=2018-02-27&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=MEL&Class=E&Departure=2018-04-05&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
 
+        try {
+
         WebElement new1 = driver.findElement(By.id("resultMask"));
-        wait.until(invisibilityOf(new1));
+        wait.until(invisibilityOf(new1));}
+
+        catch (Exception e) {}
 
         driver.findElement(By.xpath("//*[@id=\"sortListContainer\"]/ul/li[2]/span")).click();
 

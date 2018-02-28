@@ -38,7 +38,7 @@ public class Booking {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-06&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
 
         Fares ("Cheapoair");
@@ -145,6 +145,12 @@ public class Booking {
 
             String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
 
+            try {
+
+                WebElement new1 = driver.findElement(By.id("resultMask"));
+                wait.until(invisibilityOf(new1));}
+
+            catch (Exception e) {}
           // если есть, то открываем букинг страницу
 
             if (provider_text.equals(Provider)) {
@@ -360,6 +366,9 @@ public class Booking {
                System.out.println("Flight is not available " + provider_details);
                System.out.println("*********************************************************");
                booking = true;
+               driver.close();
+               driver.switchTo().window(parentHandle);
+               Assert.assertEquals("111", driver.getTitle());
            }
 
            //переключаемся на предыдущее окно

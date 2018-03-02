@@ -72,12 +72,17 @@ public class Search {
     @Test (priority  = 8)
     public void TestOne4()  {
 
+
         SearchAllOne("BGC", "YTO");
+        driver.quit();
+        driver = null;
     }
 
     @Test(priority  = 9)
     public void Test_Multi()  {
 
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, 5);
         Multicity_Search();
         driver.quit();
         driver = null;
@@ -441,7 +446,7 @@ public class Search {
         b.click();
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(700);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

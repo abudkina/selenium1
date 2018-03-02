@@ -72,11 +72,15 @@ public class Search {
     public void TestOne4()  {
 
         SearchAllOne("BGC", "YTO");
+        driver.quit();
+        driver = null;
     }
 
     @Test(priority  = 9)
     public void Test_Multi()  {
 
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, 5);
         Multicity_Search();
         driver.quit();
         driver = null;

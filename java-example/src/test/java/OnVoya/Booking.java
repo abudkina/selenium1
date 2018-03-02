@@ -127,58 +127,22 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
             booking = false;
             parentHandle = driver.getWindowHandle(); // Save parent window
 
-            for (i = 1; i < 26; i++) {
+            parentHandle = driver.getWindowHandle(); // Save parent window
+
+            // ищем среди первых 125 fares нужного провайдера
+
+            driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
+            driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
+            driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
+            driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
+
+            for (i = 1; i < 126; i++) {
 
                 String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
                 if (provider_text.equals(Provider)) {
                     driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[2]/div/a")).click();
                     fillingOut();
                     break;
-                }}
-
-
-            if (!booking) {
-
-
-                WebElement button = driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button"));
-                wait.until(visibilityOf(button));
-                driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
-                for ( i = 26; i < 51; i++) {
-                    String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
-                    if (provider_text.equals(Provider)) {
-                        driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[2]/div/a")).click();
-                        fillingOut();
-                        break;
-                    }
-                }}
-
-
-            if (!booking) {
-
-                WebElement button = driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button"));
-                wait.until(visibilityOf(button));
-                driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
-                for ( i = 51; i < 76; i++) {
-                    String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
-                    if (provider_text.equals(Provider)) {
-                        driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[2]/div/a")).click();
-                        fillingOut();
-                        break;
-                    }
-                }}
-
-            if (!booking) {
-
-                WebElement button = driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button"));
-                wait.until(visibilityOf(button));
-                driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
-                for ( i = 76; i < 101; i++) {
-                    String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
-                    if (provider_text.equals(Provider)) {
-                        driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[2]/div/a")).click();
-                        fillingOut();
-                        break;
-                    }
                 }}
 
             if (!booking) {

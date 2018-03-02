@@ -38,7 +38,7 @@ public class Booking {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-06&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
 
         Fares ("Cheapoair");
@@ -139,9 +139,14 @@ public class Booking {
 
         parentHandle = driver.getWindowHandle(); // Save parent window
 
-        // ищем среди первых 25 fares нужного провайдера
+        // ищем среди первых 125 fares нужного провайдера
 
-        for (i = 1; i < 26; i++) {
+        driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
+        driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
+        driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
+        driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
+
+        for (i = 1; i < 126; i++) {
 
             String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
 
@@ -162,52 +167,7 @@ public class Booking {
                 break;
             }}
 
-            // если провайдер не найден, открываем следующие 25 полетов
-
-            if (!booking) {
-
-
-                WebElement button = driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button"));
-                wait.until(visibilityOf(button));
-                driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
-                for ( i = 26; i < 51; i++) {
-                    String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
-                    if (provider_text.equals(Provider)) {
-                        driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[2]/div/a")).click();
-                        fillingOut();
-                        break;
-                    }
-                }}
-        // если провайдер не найден, открываем следующие 25 полетов
-
-            if (!booking) {
-
-                WebElement button = driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button"));
-                wait.until(visibilityOf(button));
-                driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
-                    for ( i = 51; i < 76; i++) {
-                        String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
-                        if (provider_text.equals(Provider)) {
-                            driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[2]/div/a")).click();
-                            fillingOut();
-                            break;
-                        }
-                    }}
-        // если провайдер не найден, открываем следующие 25 полетов
-            if (!booking) {
-
-                WebElement button = driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button"));
-                wait.until(visibilityOf(button));
-                driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
-            for ( i = 76; i < 101; i++) {
-                String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
-                if (provider_text.equals(Provider)) {
-                    driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[2]/div/a")).click();
-                    fillingOut();
-                    break;
-                }
-            }}
-        // если провайдер не найден среди первых 100 полетов -  пишем, что нет fares для провайдера
+        // если провайдер не найден среди первых 126 полетов -  пишем, что нет fares для провайдера
            if (!booking) {
 
             System.out.println("*********************************************************");
@@ -220,7 +180,7 @@ public class Booking {
         //ждем загрузки страницы
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

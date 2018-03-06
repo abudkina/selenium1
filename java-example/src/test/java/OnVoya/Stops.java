@@ -25,7 +25,7 @@ public class Stops {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
 
-        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-04-01&Adult=1&Ref=WF1");
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-04-20&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
 
         try {

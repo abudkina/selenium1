@@ -24,7 +24,7 @@ public class Search_PageResults {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wait = new WebDriverWait (driver, 30);
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-14&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
         WebElement new1 = driver.findElement(By.id("resultMask"));
         wait.until(invisibilityOf(new1));
 
@@ -99,7 +99,7 @@ public class Search_PageResults {
     public void Round_PageResults(){
         //ROUND TRIP
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-14&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
         WebElement new2 = driver.findElement(By.id("resultMask"));
         wait.until(invisibilityOf(new2));
 
@@ -190,7 +190,7 @@ public class Search_PageResults {
     public void Multi_PageResults(){
 //            MULTI TRIP
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-14&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
         WebElement new2 = driver.findElement(By.id("resultMask"));
         wait.until(invisibilityOf(new2));
 

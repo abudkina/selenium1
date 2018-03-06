@@ -30,7 +30,7 @@ public class Sort_Best {
 
         //переходим на страницу
 
-        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=MEL&Class=E&Departure=2018-04-05&Adult=1&Ref=WF1");
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=MEL&Class=E&Departure=2018-04-20&Adult=1&Ref=WF1");
         //дожидаемся загрузки результатов
 
         WebElement new1 = driver.findElement(By.id("resultMask"));

@@ -773,8 +773,8 @@ public class Links {
             System.out.println("NOT SUCCESS FOR APPLE");}
 
         driver.close();
-        driver.quit();
-        driver = null;
+           driver.quit();
+           driver = null;
     }
 
 

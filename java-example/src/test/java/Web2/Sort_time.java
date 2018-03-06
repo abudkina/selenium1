@@ -33,8 +33,8 @@ public class Sort_time {
 
        // driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
-        wait = new WebDriverWait(driver, 30);
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        wait = new WebDriverWait(driver, 90);
 
 
         WebElement new1 = driver.findElement(By.id("resultMask"));
@@ -339,7 +339,7 @@ public class Sort_time {
 
 //        driver = new ChromeDriver();
 //        wait = new WebDriverWait(driver, 5);
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-20&Return=2018-03-30&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 70);
 
         WebElement new1 = driver.findElement(By.id("resultMask"));
@@ -489,7 +489,7 @@ public class Sort_time {
     public void Sort_time_arrive_Round () {
 
         //driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, 5);
+        wait = new WebDriverWait(driver, 10);
        // driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF1");
         //wait = new WebDriverWait(driver, 90);
 

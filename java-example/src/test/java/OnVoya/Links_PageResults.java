@@ -25,7 +25,7 @@ public class Links_PageResults {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         wait = new WebDriverWait (driver, 5);
         driver.get ("https://www.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-14&Adult=1&Ref=WF1");
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/footer/div/div[1]/div/div[1]/ul/li[1]/a")).click();
+        driver.findElement(By.xpath("/html/body/div/div[2]/footer/div/div[1]/div/div[1]/ul/li[1]/a")).click();
         Assert.assertEquals("About - OnVoya", driver.getTitle()); }
 
     @Test(priority = 2)
@@ -250,7 +250,7 @@ public class Links_PageResults {
         driver.findElement(By.xpath("//*[@id=\"layout_2\"]/a/span[2]")).click();
         wait.until(titleIs("Search Flights: Find Cheap Airfares and Compare Airline Tickets - OnVoya"));
         Assert.assertEquals("Search Flights: Find Cheap Airfares and Compare Airline Tickets - OnVoya", driver.getTitle());
-
+        System.out.println("Redirect is successful for Flights");
         driver.close();
         driver.quit();
         driver = null;

@@ -312,6 +312,7 @@ public class Links_Booking {
 
         wait.until(titleIs("Search Flights: Find Cheap Airfares and Compare Airline Tickets - OnVoya"));
         Assert.assertEquals("Search Flights: Find Cheap Airfares and Compare Airline Tickets - OnVoya", driver.getTitle());
+        System.out.println("Redirect is successful for Flights");
 
     }
 
@@ -321,6 +322,7 @@ public class Links_Booking {
         driver.navigate().to(url);
         driver.findElement(By.xpath("/html/body/div/div[2]/footer/div/div[1]/div/div[1]/ul/li[1]/a")).click();
         Assert.assertEquals("About - OnVoya", driver.getTitle());
+        System.out.println("Redirect is successful for AboutUs");
 
     }
 
@@ -330,6 +332,7 @@ public class Links_Booking {
         driver.navigate().to(url);
         driver.findElement(By.xpath("/html/body/div/div[2]/footer/div/div[1]/div/div[1]/ul/li[2]/a")).click();
         Assert.assertEquals("Team - OnVoya", driver.getTitle());
+        System.out.println("Redirect is successful for TeamUs");
 
     }
 
@@ -339,6 +342,7 @@ public class Links_Booking {
         driver.navigate().to(url);
         driver.findElement(By.xpath("/html/body/div/div[2]/footer/div/div[1]/div/div[1]/ul/li[3]/a")).click();
         Assert.assertEquals("OnVoya Help Desk", driver.getTitle());
+        System.out.println("Redirect is successful for FAQ");
 
     }
 
@@ -348,6 +352,7 @@ public class Links_Booking {
         driver.navigate().to(url);
         driver.findElement(By.xpath("/html/body/div/div[2]/footer/div/div[2]/div/span[2]/a")).click();
         Assert.assertEquals("Privacy - OnVoya", driver.getTitle());
+        System.out.println("Redirect is successful for PrivacyP");
 
     }
 
@@ -357,6 +362,7 @@ public class Links_Booking {
         driver.navigate().to(url);
         driver.findElement(By.xpath("/html/body/div/div[2]/footer/div/div[2]/div/span[3]/a")).click();
         Assert.assertEquals("Terms - OnVoya", driver.getTitle());
+        System.out.println("Redirect is successful for TermsC");
         driver.close();
         driver.quit();
 

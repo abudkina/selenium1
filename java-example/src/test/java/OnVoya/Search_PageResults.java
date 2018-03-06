@@ -24,7 +24,7 @@ public class Search_PageResults {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wait = new WebDriverWait (driver, 30);
 
-        driver.navigate().to("https://www.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-14&Adult=1&Ref=WF1");
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
         WebElement new1 = driver.findElement(By.id("resultMask"));
         wait.until(invisibilityOf(new1));
 
@@ -425,7 +425,6 @@ public class Search_PageResults {
             e.printStackTrace();
         }
 
-
         driver.findElement(By.xpath("//*[@id=\"summary\"]/div/div[2]/div[2]/input")).click();
 
         try {
@@ -433,7 +432,6 @@ public class Search_PageResults {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
 
         driver.quit();
         driver = null;

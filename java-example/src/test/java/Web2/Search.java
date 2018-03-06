@@ -1,7 +1,5 @@
 package Web2;
-/**
- * Created by budki on 31.01.2018.
- */
+
 
 import org.junit.After;
 import org.junit.Before;
@@ -107,8 +105,6 @@ public class Search {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
 
         //заполняем поля from и to
 

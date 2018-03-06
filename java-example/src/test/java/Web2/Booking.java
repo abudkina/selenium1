@@ -40,7 +40,6 @@ public class Booking {
 
         driver.navigate().to("http://web2.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
-
         Fares ("Cheapoair");
 
  }
@@ -63,7 +62,8 @@ public class Booking {
     @Test
     public void FareLogix(){
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=YTO&To=NYC&Class=E&Departure=2018-03-08&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=YTO&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        wait = new WebDriverWait(driver, 90);
         Fares ("WestJet");
         driver.quit();
         driver = null;}
@@ -74,7 +74,7 @@ public class Booking {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
 
         Fares ("FareStreet");
@@ -87,7 +87,7 @@ public class Booking {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 30);
 
         Fares_Redirect ("Kiwi");}
@@ -107,7 +107,7 @@ public class Booking {
     @Test
     public void American_Airlines (){
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=LAS&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=LAS&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 30);
 
         Fares_Redirect ("American Airlines");}
@@ -133,13 +133,16 @@ public class Booking {
 
         catch (Exception e) { }
 
-        //задаем значение букинга = есть/нет
-
         booking = false;
-
         parentHandle = driver.getWindowHandle(); // Save parent window
 
         // ищем среди первых 125 fares нужного провайдера
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
         driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
@@ -149,31 +152,18 @@ public class Booking {
         for (i = 1; i < 126; i++) {
 
             String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
-
-            try {
-
-                WebElement new1 = driver.findElement(By.id("resultMask"));
-                wait.until(invisibilityOf(new1));}
-
-            catch (Exception e) {}
-          // если есть, то открываем букинг страницу
-
             if (provider_text.equals(Provider)) {
                 driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[2]/div/a")).click();
                 fillingOut();
-
-                // заканчиваем поиски провайдера
-
                 break;
             }}
 
-        // если провайдер не найден среди первых 126 полетов -  пишем, что нет fares для провайдера
-           if (!booking) {
+        if (!booking) {
 
             System.out.println("*********************************************************");
             System.out.println("Not fares for "+ Provider);
 
-    }}
+        }}
 
     public void fillingOut() {
 
@@ -307,29 +297,25 @@ public class Booking {
 
            //buy
 
-           driver.findElement(By.xpath("//*[@id=\"book-now-btn\"]")).click();
+        driver.findElement(By.xpath("//*[@id=\"book-now-btn\"]")).click();
 
-           wait = new WebDriverWait(driver, 10);
+        wait = new WebDriverWait(driver, 10);
 
-           //дожидаемся подтверждения бронирования, иначе полет недоступен
+        try {
 
-           try {
-
-               WebElement confirmation = driver.findElement(By.xpath("//*[@id=\"portlet_booking_WAR_bookingportlet\"]/div/div/div/div[2]/div/div[1]/div[1]/div[1]/div[2]"));
-               wait.until(visibilityOf(confirmation));
-               String PNR = driver.findElement(By.xpath("//*[@id=\"portlet_booking_WAR_bookingportlet\"]/div/div/div/div[2]/div/div[1]/div[1]/div[1]/div[2]/b")).getText();
-               System.out.println("Booking successful " + " Provider: " + provider_details + " PNR: " + PNR);
-               System.out.println("*********************************************************");
-               System.out.println("SUCCESS");
-               booking = true;
-           } catch (Exception e) {
-               System.out.println("Flight is not available " + provider_details);
-               System.out.println("*********************************************************");
-               booking = true;
-               driver.close();
-               driver.switchTo().window(parentHandle);
-               Assert.assertEquals("111", driver.getTitle());
-           }
+            WebElement confirmation = driver.findElement(By.xpath("//*[@id=\"portlet_booking_WAR_bookingportlet\"]/div/div/div/div[2]/div/div[1]/div[1]/div[1]/div[2]"));
+            wait.until(visibilityOf(confirmation));
+            String PNR = driver.findElement(By.xpath("//*[@id=\"portlet_booking_WAR_bookingportlet\"]/div/div/div/div[2]/div/div[1]/div[1]/div[1]/div[2]/b")).getText();
+            System.out.println("Booking successful " + " Provider: " + provider_details + " PNR: " + PNR);
+            System.out.println("*********************************************************");
+            System.out.println("SUCCESS");
+            booking = true;
+        } catch (Exception e) {
+            Assert.assertEquals("111", driver.getTitle());
+            System.out.println("Flight is not available "+ provider_details);
+            System.out.println("*********************************************************");
+            booking = true;
+        }
 
            //переключаемся на предыдущее окно
 //        driver.manage().window().maximize();
@@ -350,60 +336,20 @@ public class Booking {
         } catch (Exception e) {
         }
 
-       parentHandle = driver.getWindowHandle(); // Save parent window
+        parentHandle = driver.getWindowHandle(); // Save parent window
 
-        //ищем среди первых 25 полетов нужный провайдер
+        driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
+        driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
+        driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
+        driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
 
-        for (i = 1; i < 26; i++) {
+        for (i = 1; i < 126; i++) {
 
             String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
             if (provider_text.equals(provider)) {
                 driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[2]/div/a")).click();
                 redirect();
                 break;
-            }}
-
-        if (booking==false) {
-
-
-            WebElement button = driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button"));
-            wait.until(visibilityOf(button));
-            driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
-            for ( i = 26; i < 51; i++) {
-                String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
-                if (provider_text.equals(provider)) {
-                    driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[2]/div/a")).click();
-                    redirect();
-                    break;
-                }
-            }}
-
-        if (booking==false) {
-
-            WebElement button = driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button"));
-            wait.until(visibilityOf(button));
-            driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
-            for ( i = 51; i < 76; i++) {
-                String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
-                if (provider_text.equals(provider)) {
-                    driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[2]/div/a")).click();
-                    redirect();
-                    break;
-                }
-            }}
-
-        if (booking==false) {
-
-            WebElement button = driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button"));
-            wait.until(visibilityOf(button));
-            driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
-            for ( i = 76; i < 101; i++) {
-                String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
-                if (provider_text.equals(provider)) {
-                    driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[2]/div/a")).click();
-                    redirect();
-                    break;
-                }
             }}
 
         if (booking==false) {

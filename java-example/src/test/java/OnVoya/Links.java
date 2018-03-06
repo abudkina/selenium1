@@ -549,7 +549,7 @@ public class Links {
         if (!title.contains(City) || (!information.contains(City)) || (!weather.contains(City)) || (!airport.contains(City)))
         {System.out.println("Does not work "+City);}
 
-        Assert.assertEquals("http://web2.onvoya.com/phuket/", driver.getCurrentUrl());
+        Assert.assertEquals("https://www.onvoya.com/phuket/", driver.getCurrentUrl());
     }
 
     @Test(priority = 35)

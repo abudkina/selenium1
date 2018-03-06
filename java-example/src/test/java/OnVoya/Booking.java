@@ -34,8 +34,8 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
             driver = new ChromeDriver();
             wait = new WebDriverWait(driver, 5);
 
-            driver.navigate().to("https://www.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-06&Adult=1&Ref=WF1");
-            wait = new WebDriverWait(driver, 30);
+            driver.navigate().to("https://www.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+            wait = new WebDriverWait(driver, 90);
 
             Fares ("Cheapoair"); }
 
@@ -55,8 +55,8 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
         @Test
         public void FareLogix(){
 
-            driver.navigate().to("https://www.onvoya.com/flights/search?From=YTO&To=NYC&Class=E&Departure=2018-03-08&Adult=1&Ref=WF1");
-            wait = new WebDriverWait(driver, 30);
+            driver.navigate().to("https://www.onvoya.com/flights/search?From=YTO&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+            wait = new WebDriverWait(driver, 90);
 
             Fares ("WestJet");
             driver.quit();
@@ -68,7 +68,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
             driver = new ChromeDriver();
             wait = new WebDriverWait(driver, 5);
-            driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
+            driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
             wait = new WebDriverWait(driver, 90);
 
             Fares ("FareStreet");
@@ -80,8 +80,8 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
 
-        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
-        wait = new WebDriverWait(driver, 30);
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        wait = new WebDriverWait(driver, 90);
 
         Fares_Redirect ("Kiwi");}
 
@@ -100,8 +100,8 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
     @Test
     public void American_Airlines (){
 
-        driver.navigate().to("https://www.onvoya.com/flights/search?From=LAX&To=LAS&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
-        wait = new WebDriverWait(driver, 30);
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=LAX&To=LAS&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        wait = new WebDriverWait(driver, 90);
 
         Fares_Redirect ("American Airlines");}
 
@@ -125,8 +125,6 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
             catch (Exception e) { }
 
             booking = false;
-            parentHandle = driver.getWindowHandle(); // Save parent window
-
             parentHandle = driver.getWindowHandle(); // Save parent window
 
             // ищем среди первых 125 fares нужного провайдера
@@ -235,7 +233,8 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
                 System.out.println("SUCCESS");
                 booking = true;
             } catch (Exception e) {
-                System.out.println("Flight is not available " + provider_details);
+                Assert.assertEquals("111", driver.getTitle());
+                System.out.println("Flight is not available "+ provider_details);
                 System.out.println("*********************************************************");
                 booking = true;
             }
@@ -258,7 +257,12 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
             parentHandle = driver.getWindowHandle(); // Save parent window
 
-            for (i = 1; i < 26; i++) {
+            driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
+            driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
+            driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
+            driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
+
+            for (i = 1; i < 126; i++) {
 
                 String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
                 if (provider_text.equals(provider)) {
@@ -267,48 +271,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
                     break;
                 }}
 
-            if (booking==false) {
 
-
-                WebElement button = driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button"));
-                wait.until(visibilityOf(button));
-                driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
-                for ( i = 26; i < 51; i++) {
-                    String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
-                    if (provider_text.equals(provider)) {
-                        driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[2]/div/a")).click();
-                        redirect();
-                        break;
-                    }
-                }}
-
-            if (booking==false) {
-
-                WebElement button = driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button"));
-                wait.until(visibilityOf(button));
-                driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
-                for ( i = 51; i < 76; i++) {
-                    String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
-                    if (provider_text.equals(provider)) {
-                        driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[2]/div/a")).click();
-                        redirect();
-                        break;
-                    }
-                }}
-
-            if (booking==false) {
-
-                WebElement button = driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button"));
-                wait.until(visibilityOf(button));
-                driver.findElement(By.xpath("//*[@id=\"moreResult\"]/button")).click();
-                for ( i = 76; i < 101; i++) {
-                    String provider_text = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[1]/div")).getText();
-                    if (provider_text.equals(provider)) {
-                        driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div[" + i + "]/div/div/div[1]/div[2]/div[1]/div[2]/div/a")).click();
-                        redirect();
-                        break;
-                    }
-                }}
 
             if (booking==false) {
 

@@ -30,15 +30,18 @@ public class Booking {
     String provider;
     public WebDriver driver;
     public WebDriverWait wait;
+    public String data = "2018-04-02";
+
 
 
     @Test
     public void Cheapoair(){
 
+
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
         Fares ("Cheapoair");
 
@@ -47,23 +50,23 @@ public class Booking {
     @Test
     public void SmartFares() {
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
-        Fares ("Smartfares");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
+        Fares ("Smartfares");
         driver.quit();
         driver = null;
 }
 
     @Test
     public void FareDepot(){
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
         Fares ("Faredepot"); }
 
     @Test
     public void FareLogix(){
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=YTO&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=YTO&To=NYC&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
         Fares ("WestJet");
         driver.quit();
@@ -75,7 +78,7 @@ public class Booking {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
 
         Fares ("FareStreet");
@@ -88,20 +91,20 @@ public class Booking {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
 
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
 
         Fares_Redirect ("Kiwi");}
 
     @Test
     public void Opodo (){
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
         Fares_Redirect ("Opodo");}
 
     @Test
     public void Expedia (){
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
         Fares_Redirect ("Expedia");
 
@@ -110,8 +113,7 @@ public class Booking {
     @Test
     public void American_Airlines (){
 
-
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=LAS&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=LAS&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
 
         Fares_Redirect ("American Airlines");
@@ -121,7 +123,7 @@ public class Booking {
    @Test
     public void eDreams (){
 
-       driver.navigate().to("http://web2.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+       driver.navigate().to("http://web2.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
        wait = new WebDriverWait(driver, 90);
         Fares_Redirect ("eDreams");
 
@@ -169,6 +171,8 @@ public class Booking {
 
             System.out.println("*********************************************************");
             System.out.println("Not fares for "+ Provider);
+            booking = true;
+            Assert.assertEquals("111", driver.getTitle());
 
         }}
 

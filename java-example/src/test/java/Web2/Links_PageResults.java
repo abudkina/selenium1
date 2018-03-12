@@ -45,6 +45,13 @@ public class Links_PageResults {
     @Test(priority = 3)
     public void ContactUs (){
         driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/footer/div/div[1]/div/div[1]/ul/li[4]/a")).click();
         Assert.assertEquals("Contact Us - OnVoya", driver.getTitle()); }
 

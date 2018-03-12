@@ -26,6 +26,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
         String provider;
         public WebDriver driver;
         public WebDriverWait wait;
+        public String data = "2018-03-30";
 
 
         @Test
@@ -34,7 +35,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
             driver = new ChromeDriver();
             wait = new WebDriverWait(driver, 5);
 
-            driver.navigate().to("https://www.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+            driver.navigate().to("https://www.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
             wait = new WebDriverWait(driver, 90);
 
             Fares ("Cheapoair"); }
@@ -42,7 +43,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
     @Test
     public void SmartFares() {
 
-        driver.navigate().to("https://www.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
         Fares ("Smartfares");
         driver.quit();
@@ -52,14 +53,14 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
         @Test
         public void FareDepot(){
 
-            driver.navigate().to("https://www.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+            driver.navigate().to("https://www.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
             wait = new WebDriverWait(driver, 90);
             Fares ("Faredepot"); }
 
         @Test
         public void FareLogix(){
 
-            driver.navigate().to("https://www.onvoya.com/flights/search?From=YTO&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+            driver.navigate().to("https://www.onvoya.com/flights/search?From=YTO&To=NYC&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
             wait = new WebDriverWait(driver, 90);
 
             Fares ("WestJet");
@@ -72,7 +73,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
             driver = new ChromeDriver();
             wait = new WebDriverWait(driver, 5);
-            driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+            driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
             wait = new WebDriverWait(driver, 90);
 
             Fares ("FareStreet");
@@ -84,7 +85,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
 
-        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
 
         Fares_Redirect ("Kiwi");}
@@ -92,14 +93,14 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
     @Test
     public void Opodo (){
 
-        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
         Fares_Redirect ("Opodo");}
 
     @Test
     public void Expedia (){
 
-        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
         Fares_Redirect ("Expedia");
         driver.quit();
@@ -113,7 +114,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
 
-        driver.navigate().to("https://www.onvoya.com/flights/search?From=LAX&To=LAS&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=LAX&To=LAS&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
 
         Fares_Redirect ("American Airlines");}
@@ -121,7 +122,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
     @Test
     public void eDreams (){
 
-        driver.navigate().to("https://www.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
         Fares_Redirect ("eDreams");
 
@@ -161,6 +162,8 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
                 System.out.println("*********************************************************");
                 System.out.println("Not fares for "+ Provider);
+                booking = true;
+                Assert.assertEquals("Error - not fares", driver.getTitle());
 
             }}
 
@@ -196,7 +199,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
                 booking = true;
                 driver.close();
                 driver.switchTo().window(parentHandle);
-                Assert.assertEquals("111", driver.getTitle());
+                Assert.assertEquals("Error - Booking page is not opened", driver.getTitle());
             }
 
             driver.findElement(By.xpath("//*[@id=\"travellerFirstName1\"]")).sendKeys("Linda");
@@ -250,7 +253,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
                 System.out.println("Flight is not available "+ provider_details);
                 System.out.println("*********************************************************");
                 booking = true;
-                Assert.assertEquals("111", driver.getTitle());
+                Assert.assertEquals("Error - Flight is not available", driver.getTitle());
             }
 
 //        driver.manage().window().maximize();

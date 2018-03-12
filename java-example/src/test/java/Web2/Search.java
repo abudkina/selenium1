@@ -442,7 +442,7 @@ public class Search {
         b.click();
 
         try {
-            Thread.sleep(700);
+            Thread.sleep(1500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -477,7 +477,7 @@ public class Search {
         driver.findElement(By.xpath("//*[@id=\"dp_widget_container\"]/div[4]/div[2]/table[2]/tbody/tr[2]/td[3]/div/span")).click();
 
         try {
-            Thread.sleep(1300);
+            Thread.sleep(1500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -546,7 +546,7 @@ public class Search {
         driver.findElement(By.xpath("//*[@id=\"dp_widget_container\"]/div[6]/div[2]/table[1]/tbody/tr[5]/td[4]/div/span")).click();
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(1500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -580,7 +580,7 @@ public class Search {
         driver.findElement(By.xpath("//*[@id=\"dp_widget_container\"]/div[7]/div[2]/table[2]/tbody/tr[3]/td[3]/div/span")).click();
 
         try {
-            Thread.sleep(1300);
+            Thread.sleep(1500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

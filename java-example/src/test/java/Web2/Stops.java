@@ -125,7 +125,7 @@ public class Stops {
 
         results=0;
 
-        for (int i = 1; i <= length; i++) {
+        for (int i = 1; i <= 20; i++) {
 
             p=0;
 

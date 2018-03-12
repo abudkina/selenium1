@@ -334,7 +334,7 @@ public class Sort_time {
 //        driver = new ChromeDriver();
 //        wait = new WebDriverWait(driver, 5);
         driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-20&Return=2018-03-30&Adult=1&Ref=WF1");
-        wait = new WebDriverWait(driver, 70);
+        wait = new WebDriverWait(driver, 90);
 
         WebElement new1 = driver.findElement(By.id("resultMask"));
         wait.until(invisibilityOf(new1));

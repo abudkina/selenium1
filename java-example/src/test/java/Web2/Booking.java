@@ -59,7 +59,7 @@ public class Booking {
 
     @Test
     public void FareDepot(){
-        driver.navigate().to("http://web2.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
+        driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure="+data+"&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
         Fares ("Faredepot"); }
 
@@ -172,7 +172,7 @@ public class Booking {
             System.out.println("*********************************************************");
             System.out.println("Not fares for "+ Provider);
             booking = true;
-            Assert.assertEquals("111", driver.getTitle());
+            Assert.assertEquals("Error - not fares", driver.getTitle());
 
         }}
 
@@ -215,7 +215,7 @@ public class Booking {
                booking = true;
                driver.close();
                driver.switchTo().window(parentHandle);
-               Assert.assertEquals("111", driver.getTitle());
+               Assert.assertEquals("Error - Booking page is not opened", driver.getTitle());
            }
 
            driver.findElement(By.xpath("//*[@id=\"book-now-btn\"]")).click();
@@ -325,7 +325,7 @@ public class Booking {
             System.out.println("Flight is not available "+ provider_details);
             System.out.println("*********************************************************");
             booking = true;
-            Assert.assertEquals("111", driver.getTitle());
+            Assert.assertEquals("Error - Адшпре is not available", driver.getTitle());
         }
 
            //переключаемся на предыдущее окно

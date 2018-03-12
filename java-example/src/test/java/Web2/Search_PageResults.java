@@ -22,7 +22,7 @@ public class Search_PageResults {
 
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        wait = new WebDriverWait (driver, 30);
+        wait = new WebDriverWait (driver, 90);
 
         driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
         WebElement new1 = driver.findElement(By.id("resultMask"));

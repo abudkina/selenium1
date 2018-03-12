@@ -22,8 +22,8 @@ public class Links_PageResults {
     public void AboutUs (){
 
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        wait = new WebDriverWait (driver, 5);
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        wait = new WebDriverWait (driver, 7);
         driver.get ("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/footer/div/div[1]/div/div[1]/ul/li[1]/a")).click();
         Assert.assertEquals("About - OnVoya", driver.getTitle()); }
@@ -31,6 +31,13 @@ public class Links_PageResults {
     @Test(priority = 2)
     public void Team (){
         driver.navigate().to("http://web2.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/footer/div/div[1]/div/div[1]/ul/li[2]/a")).click();
         wait.until(titleIs("Team - OnVoya"));
         Assert.assertEquals("Team - OnVoya", driver.getTitle()); }

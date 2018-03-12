@@ -21,7 +21,7 @@ public class Flexible {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
         driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
-        wait = new WebDriverWait(driver, 30);
+        wait = new WebDriverWait(driver, 90);
 
 
         WebElement new1 = driver.findElement(By.id("resultMask"));
@@ -64,7 +64,7 @@ public class Flexible {
     public void MonthlyCalendar_OneWay () {
 
         driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-04&Adult=1&Ref=WF1");
-        wait = new WebDriverWait(driver, 120);
+        wait = new WebDriverWait(driver, 90);
 
 
         WebElement new1 = driver.findElement(By.id("resultMask"));
@@ -112,7 +112,7 @@ public class Flexible {
 //        driver = new ChromeDriver();
 //        wait = new WebDriverWait(driver, 5);
         driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF1");
-        wait = new WebDriverWait(driver, 120);
+        wait = new WebDriverWait(driver, 90);
 
 
         WebElement new1 = driver.findElement(By.id("resultMask"));
@@ -155,7 +155,7 @@ public class Flexible {
     public void MonthlyCalendar_RoundWay () {
 
         driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=DEL&Class=E&Departure=2018-03-04&Return=2018-03-08&Adult=1&Ref=WF1");
-        wait = new WebDriverWait(driver, 120);
+        wait = new WebDriverWait(driver, 90);
 
 
         WebElement new1 = driver.findElement(By.id("resultMask"));

@@ -42,6 +42,8 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
     @Test
     public void SmartFares() {
 
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        wait = new WebDriverWait(driver, 90);
         Fares ("Smartfares");
         driver.quit();
         driver = null;}
@@ -50,6 +52,8 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
         @Test
         public void FareDepot(){
 
+            driver.navigate().to("https://www.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+            wait = new WebDriverWait(driver, 90);
             Fares ("Faredepot"); }
 
         @Test
@@ -88,17 +92,26 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
     @Test
     public void Opodo (){
 
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        wait = new WebDriverWait(driver, 90);
         Fares_Redirect ("Opodo");}
 
     @Test
     public void Expedia (){
 
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=NYC&To=LON&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        wait = new WebDriverWait(driver, 90);
         Fares_Redirect ("Expedia");
+        driver.quit();
+        driver = null;
 
     }
 
     @Test
     public void American_Airlines (){
+
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, 5);
 
         driver.navigate().to("https://www.onvoya.com/flights/search?From=LAX&To=LAS&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
@@ -108,9 +121,10 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
     @Test
     public void eDreams (){
 
-        Fares_Redirect ("Edreams");
-        driver.quit();
-        driver = null;
+        driver.navigate().to("https://www.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
+        wait = new WebDriverWait(driver, 90);
+        Fares_Redirect ("eDreams");
+
     }
 
 
@@ -233,10 +247,10 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
                 System.out.println("SUCCESS");
                 booking = true;
             } catch (Exception e) {
-                Assert.assertEquals("111", driver.getTitle());
                 System.out.println("Flight is not available "+ provider_details);
                 System.out.println("*********************************************************");
                 booking = true;
+                Assert.assertEquals("111", driver.getTitle());
             }
 
 //        driver.manage().window().maximize();

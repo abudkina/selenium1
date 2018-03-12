@@ -36,7 +36,7 @@ public class Details {
         cityA = "Delhi";
 
         driver.navigate().to("http://web2.onvoya.com/flights/search?From="+airportD+"&To="+airportA+"&Class=E&Departure=2018-08-04&Adult=1&Ref=WF1");
-        wait = new WebDriverWait(driver, 120);
+        wait = new WebDriverWait(driver, 90);
 
         WebElement new1 = driver.findElement(By.id("resultMask"));
         wait.until(invisibilityOf(new1));
@@ -48,7 +48,7 @@ public class Details {
      public void detailsFaresRound () {
 
             driver.navigate().to("http://web2.onvoya.com/flights/search?From="+airportD+"&To="+airportA+"&Class=E&Departure=2018-08-04&Return=2018-08-08&Adult=1&Ref=WF1");
-            wait = new WebDriverWait(driver, 120);
+            wait = new WebDriverWait(driver, 90);
             WebElement new2 = driver.findElement(By.id("resultMask"));
             wait.until(invisibilityOf(new2));
 
@@ -57,7 +57,7 @@ public class Details {
 
     public void compareFromToOneWay () {
 
-        for (int i=1;i<26;i++){
+        for (int i=1;i<21;i++){
 
             String departure = driver.findElement(By.xpath("//*[@id=\"itineraries\"]/div["+i+"]/div/div[1]/div[1]/div[1]/div/div/div[1]/div[2]/div[2]")).getText();
 

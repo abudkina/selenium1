@@ -12,6 +12,7 @@
                     <include name="SmartFares"/>
                 </methods>
             </class>
+            <class name="OnVoya.Search_PageResults"/>
         </classes>
     </test>
 
@@ -21,43 +22,49 @@
             <class name="OnVoya.Booking">
                 <methods>
                     <include name="Cheapoair"/>
-                    <include name="FareDepot"/>
+                    <!--<include name="FareDepot"/>-->
+                    <include name="FareLogix"/>
                 </methods>
-
             </class>
+            <class name="OnVoya.Links_PageResults"/>
+            <class name="OnVoya.Links_Booking"/>
         </classes>
     </test>
 
     <test name="3 Parallel test" preserve-order="true">
         <parameter name="myparam" value="blablabla"/>
         <classes>
-            <class name="OnVoya.Search">
-            </class>
+                <class name="OnVoya.Search"/>
+                <class name="OnVoya.Links"/>
+                <class name="OnVoya.Details"/>
+                <class name="OnVoya.Stops"/>
         </classes>
     </test>
 
     <test name="4 Parallel test" preserve-order="true">
     <parameter name="myparam" value="blablablabla"/>
     <classes>
-            <class name="OnVoya.Booking">
+                    <class name="OnVoya.Booking">
                 <methods>
                     <include name="Kiwi"/>
                     <include name="Opodo"/>
-                    <include name="Expedia"/>
-                    <include name="American Airlines"/>
                     <include name="eDreams"/>
+                    <include name="Expedia"/>
+                    <include name="American_Airlines"/>
                 </methods>
             </class>
+          <class name="OnVoya.Search_PageResults"/>
     </classes>
 </test>
 
     <test name="5 Parallel test" preserve-order="true">
         <parameter name="myparam" value="blablablablabla"/>
         <classes>
-            <class name="OnVoya.Sort">
-            </class>
-            <class name="OnVoya.Contact">
-            </class>
+            <class name="OnVoya.Sort"/>
+            <class name="OnVoya.Contact"/>
+            <class name="OnVoya.Sort_duration"/>
+            <class name="OnVoya.Sort_time"/>
+            <class name="OnVoya.Sort_Best"/>
         </classes>
     </test>
 

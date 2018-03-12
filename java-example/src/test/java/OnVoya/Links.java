@@ -27,8 +27,8 @@ public class Links {
     public void AboutUs (){
 
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        wait = new WebDriverWait (driver, 5);
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        wait = new WebDriverWait (driver, 7);
         driver.get ("https://www.onvoya.com");
         driver.findElement(By.xpath("/html/body/div/div[2]/footer/div/div[1]/div/div[1]/ul/li[1]/a")).click();
         Assert.assertEquals("About - OnVoya", driver.getTitle()); }

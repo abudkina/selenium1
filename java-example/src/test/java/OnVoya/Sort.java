@@ -93,7 +93,8 @@ public class Sort {
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[4]/label")).click();
 
         a = driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[4]/label/span[2]")).getText();
-        length = Integer.parseInt(a);
+        try {length = Integer.parseInt(a);}
+        catch (Exception e) {
         if (length<25) {length = Integer.parseInt(a)-1;}
         else {length = 25-1;}
 
@@ -102,7 +103,7 @@ public class Sort {
 
         //check price 1 - 5 - 10 - 15 fares
 
-        sortPrice();
+        sortPrice();}
         driver.findElement(By.xpath("//*[@id=\"filter\"]/div/div[1]/div/div[1]/div/div[2]/div[1]/ul/li[4]/label")).click();
         //check price 1 - 5 - 10 - 15 fares
 

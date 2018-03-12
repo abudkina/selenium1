@@ -23,7 +23,7 @@ public class Links_Booking {
     @Test(priority=1)
     public void Terms(){
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, 5);
+        wait = new WebDriverWait(driver, 7);
 
         driver.navigate().to("https://www.onvoya.com/flights/search?From=DEL&To=NYC&Class=E&Departure=2018-03-20&Adult=1&Ref=WF1");
         wait = new WebDriverWait(driver, 90);
@@ -318,6 +318,13 @@ public class Links_Booking {
     public void AboutUs(){
 
         driver.navigate().to(url);
+
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         driver.findElement(By.xpath("/html/body/div/div[2]/footer/div/div[1]/div/div[1]/ul/li[1]/a")).click();
         Assert.assertEquals("About - OnVoya", driver.getTitle());
         System.out.println("Redirect is successful for About Us");
@@ -328,6 +335,13 @@ public class Links_Booking {
     public void Team(){
 
         driver.navigate().to(url);
+
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         driver.findElement(By.xpath("/html/body/div/div[2]/footer/div/div[1]/div/div[1]/ul/li[2]/a")).click();
         Assert.assertEquals("Team - OnVoya", driver.getTitle());
         System.out.println("Redirect is successful for Team");
@@ -338,6 +352,13 @@ public class Links_Booking {
     public void FAQ(){
 
         driver.navigate().to(url);
+
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         driver.findElement(By.xpath("/html/body/div/div[2]/footer/div/div[1]/div/div[1]/ul/li[3]/a")).click();
         Assert.assertEquals("OnVoya Help Desk", driver.getTitle());
         System.out.println("Redirect is successful for FAQ");
@@ -348,6 +369,13 @@ public class Links_Booking {
     public void PrivacyP(){
 
         driver.navigate().to(url);
+
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         driver.findElement(By.xpath("/html/body/div/div[2]/footer/div/div[2]/div/span[2]/a")).click();
         Assert.assertEquals("Privacy - OnVoya", driver.getTitle());
         System.out.println("Redirect is successful for PrivacyP");
@@ -358,6 +386,13 @@ public class Links_Booking {
     public void TermsC(){
 
         driver.navigate().to(url);
+
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         driver.findElement(By.xpath("/html/body/div/div[2]/footer/div/div[2]/div/span[3]/a")).click();
         Assert.assertEquals("Terms - OnVoya", driver.getTitle());
         System.out.println("Redirect is successful for TermsC");

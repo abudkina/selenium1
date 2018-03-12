@@ -22,8 +22,8 @@ public class Links_PageResults {
     public void AboutUs (){
 
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        wait = new WebDriverWait (driver, 5);
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        wait = new WebDriverWait (driver, 7);
         driver.get ("https://www.onvoya.com/flights/search?From=LAX&To=BOS&Class=E&Departure=2018-03-14&Adult=1&Ref=WF1");
         driver.findElement(By.xpath("/html/body/div/div[2]/footer/div/div[1]/div/div[1]/ul/li[1]/a")).click();
         Assert.assertEquals("About - OnVoya", driver.getTitle()); }
